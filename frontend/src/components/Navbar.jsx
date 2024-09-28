@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 // import discord from "../../src/assets/fantasyextreme.org/media.api-sports.io/i";
 const Navbar = () => {
   return (
@@ -9,7 +10,10 @@ const Navbar = () => {
         <div className="right-part flex flex-col">
             <ul className='right-list flex flex-row pr-11 gap-4 m-4 p-2 rounded-2xl border-[0.1vw]     border-[#68ed94]  bg-[#0C0C19] text-white text-sm justify-center items-center '>
                 <li className='cursor-pointer hover:text-gGlow transition-all duration-1000 '>Matches</li>
-                <li className='cursor-pointer hover:text-gGlow transition-all duration-1000 '>Rewards Calculator</li>
+                {/* <Link to="/gameplayrules"> */}
+                <li  className='cursor-pointer hover:text-gGlow transition-all duration-1000 '>Rewards Calculator</li>
+                {/* </Link> */}
+                
                 <li className='cursor-pointer hover:text-gGlow transition-all duration-1000 '>Leagues</li>
                 <li className='cursor-pointer hover:text-gGlow transition-all duration-1000 '>Gameplay Rules</li>
                 <li >

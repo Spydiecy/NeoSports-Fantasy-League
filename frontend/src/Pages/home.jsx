@@ -11,6 +11,7 @@ export default function Home() {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
       }}>
+        
     
       </div>
       <div className="bg-black  text-white">
