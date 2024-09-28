@@ -1,0 +1,69 @@
+import { ethers } from 'ethers';
+
+export const USER_MANAGER_ADDRESS = '0x040165C55e824f0221CF9a44f920fDb565B7aADA';
+
+export const USER_MANAGER_ABI = [
+  {
+    "inputs": [{"internalType": "string", "name": "_username", "type": "string"}],
+    "name": "registerUser",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [{"internalType": "address", "name": "_userAddress", "type": "address"}],
+    "name": "getUser",
+    "outputs": [
+      {"internalType": "string", "name": "username", "type": "string"},
+      {"internalType": "address", "name": "walletAddress", "type": "address"},
+      {"internalType": "bool", "name": "isRegistered", "type": "bool"},
+      {"internalType": "uint256[]", "name": "participatedLeagues", "type": "uint256[]"},
+      {"internalType": "uint256[]", "name": "wonLeagues", "type": "uint256[]"},
+      {"internalType": "uint256", "name": "totalRewards", "type": "uint256"}
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  }
+];
+
+export async function getUserData(provider, userAddress) {
+  const contract = new ethers.Contract(USER_MANAGER_ADDRESS, USER_MANAGER_ABI, provider);
+  try {
+    const userData = await contract.getUser(userAddress);
+    return {
+      username: userData.username,
+      walletAddress: userData.walletAddress,
+      isRegistered: userData.isRegistered,
+      participatedLeagues: userData.participatedLeagues,
+      wonLeagues: userData.wonLeagues,
+      totalRewards: ethers.formatEther(userData.totalRewards)
+    };
+  } catch (error) {
+    console.error("Error fetching user data:", error);
+    return null;
+  }
+}
+
+export async function registerUser(signer, username) {
+  const contract = new ethers.Contract(USER_MANAGER_ADDRESS, USER_MANAGER_ABI, signer);
+  try {
+    console.log('Estimating gas for registration...');
+    const gasEstimate = await contract.registerUser.estimateGas(username);
+    console.log('Gas estimate:', gasEstimate.toString());
+
+    console.log('Sending registration transaction...');
+    const tx = await contract.registerUser(username, {
+      gasLimit: Math.floor(Number(gasEstimate) * 1.2) // Add 20% buffer to gas estimate
+    });
+    
+    console.log('Transaction sent:', tx.hash);
+    const receipt = await tx.wait();
+    console.log('Transaction confirmed in block:', receipt.blockNumber);
+    return true;
+  } catch (error) {
+    console.error("Error registering user:", error);
+    if (error.message) console.error("Error message:", error.message);
+    if (error.stack) console.error("Error stack:", error.stack);
+    return false;
+  }
+}
