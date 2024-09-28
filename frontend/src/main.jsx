@@ -10,7 +10,6 @@ import Footer from './components/Footer.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
         <NextUIProvider>
-    <Navbar></Navbar>
     <App />
     <Footer></Footer>
     </NextUIProvider>

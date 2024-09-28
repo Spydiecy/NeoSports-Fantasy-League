@@ -9,13 +9,18 @@ const Navbar = () => {
         </div>
         <div className="right-part flex flex-col">
             <ul className='right-list flex flex-row pr-11 gap-4 m-4 p-2 rounded-2xl border-[0.1vw]     border-[#68ed94]  bg-[#0C0C19] text-white text-sm justify-center items-center '>
+                <Link to="/matches">
                 <li className='cursor-pointer hover:text-gGlow transition-all duration-1000 '>Matches</li>
-                {/* <Link to="/gameplayrules"> */}
+                </Link>
+             <Link to='/rewardCalculator'>
                 <li  className='cursor-pointer hover:text-gGlow transition-all duration-1000 '>Rewards Calculator</li>
-                {/* </Link> */}
+                </Link>
+            
                 
                 <li className='cursor-pointer hover:text-gGlow transition-all duration-1000 '>Leagues</li>
+                <Link to="/fantasyextremeRules">
                 <li className='cursor-pointer hover:text-gGlow transition-all duration-1000 '>Gameplay Rules</li>
+                </Link>
                 <li >
                     <button className='border-white border-2 p-[0.2vw] rounded-xl '>JOIN DISCORD</button>
                 </li>
