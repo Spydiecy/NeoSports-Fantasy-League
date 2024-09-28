@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 // import discord from "../../src/assets/fantasyextreme.org/media.api-sports.io/i";
 const Navbar = () => {
   return (
-    <div className='  flex absolute gap-[30vw] top-3 gap-x-[40vw]  justify-between'>
+    <div className='  flex absolute gap-[30vw] top-3 gap-x-[40vw]  justify-between z-50'>
         <div className="left-part">
             <img className='h-20 pl-4 ' src="https://fantasy-extreme-assets.s3.us-east-005.backblazeb2.com/Compressed/logo/logo.png" alt="" />
         </div>
