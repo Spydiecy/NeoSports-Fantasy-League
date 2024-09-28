@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@font-face {
+  font-family: 'MyCustomFont';
+  src: url('../src//Fonts//Poppins-Medium.ttf') format('truetype');
+  font-weight: 400; /* Regular */
+  font-style: normal;
+}
+body {
+  font-family: 'MyCustomFont', sans-serif;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  padding: 0;
+  margin: 0;
+}
