@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Component from './dropDownleague'
 // import discord from "../../src/assets/fantasyextreme.org/media.api-sports.io/i";
 const Navbar = () => {
   return (
@@ -14,7 +15,7 @@ const Navbar = () => {
                 <li  className='cursor-pointer hover:text-gGlow transition-all duration-1000 '>Rewards Calculator</li>
                 {/* </Link> */}
                 
-                <li className='cursor-pointer hover:text-gGlow transition-all duration-1000 '>Leagues</li>
+                <li className='cursor-pointer hover:text-gGlow transition-all duration-1000 '><Component></Component></li>
                 <li className='cursor-pointer hover:text-gGlow transition-all duration-1000 '>Gameplay Rules</li>
                 <li >
                     <button className='border-white border-2 p-[0.2vw] rounded-xl '>JOIN DISCORD</button>

@@ -9,7 +9,7 @@ const User = () => {
   return (
  
         <div className="min-h-screen bg-gray-black text-white p-8 h-[240vh] bg-black pt-44">
-      <div className="max-w-2xl mx-auto bg-gray-800 border border-gray-700 rounded-lg p-6">
+      <div className="  mx-5 mb-20 bg-gray-800 border border-gray-700 rounded-lg p-6">
         <h1 className="text-2xl font-bold text-center mb-6">User Profile</h1>
         <div className="space-y-6">
           <div className="flex justify-between items-center">
@@ -37,7 +37,7 @@ const User = () => {
         </div>
       </div>
       <div className="mb-28 bg-gradient-to-b bg-black w-full to-black p-6">
-      <div className="max-w-6xl mx-auto bg-gray-800 rounded-3xl shadow-lg overflow-hidden">
+      <div className=" bg-gray-800 rounded-3xl shadow-lg overflow-hidden">
         <div className="p-6">
           <div className="flex justify-between items-center mb-8">
             <h1 className="text-2xl font-bold">
@@ -81,7 +81,7 @@ const User = () => {
      {/* my transaction history table */}
 
      <div className=" bg-gradient-to-b  from-gray-900 to-black ">
-      <div className="max-w-6xl mx-auto bg-gray-800 rounded-3xl shadow-lg overflow-hidden">
+      <div className="mx-auto bg-gray-800 rounded-3xl shadow-lg overflow-hidden">
         <div className="p-6">
           <div className="flex justify-between items-center mb-8">
             <h1 className="text-2xl font-bold">
