@@ -27,7 +27,6 @@ function App() {
         <Route path="/userProfile" element={<User></User>} />
         <Route path="/fantasyextremeRules" element={<FantasyExtremeRules></FantasyExtremeRules>} />
         <Route path="/leagues/IPL" element={<IPL></IPL>} />
-        
         {/* Catch-all route that redirects to /home */}
         <Route path="*" element={<Navigate to="/home" />} />
       </Routes>
