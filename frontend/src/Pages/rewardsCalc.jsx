@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure} from "@nextui-org/react";
 import {Input} from "@nextui-org/react";
+
+
 import {Select, SelectSection, SelectItem} from "@nextui-org/select";
 import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, getKeyValue} from "@nextui-org/react";
 import pool_image from "../../src/assets/pool_image.png";
+import { useNavigate } from 'react-router-dom';
 const rows = [
   {
     key: "1",
@@ -53,6 +56,7 @@ const RewardsCalc = ({props}) => {
   }
   
   const [show, setshow] = useState(true)
+  const Navigate=useNavigate();
   return (
     <div className='bg-black h-[99.9vh]'>
        <div className="flex flex-wrap gap-3">
@@ -73,6 +77,7 @@ const RewardsCalc = ({props}) => {
       onClose={()=>{
         setshow(false)
         onClose()
+        Navigate('/home')
       }}  className="bg-[#121212] border-2 border-gray-600 rounded-2xl">
         <ModalContent>
           {(onClose) => (
