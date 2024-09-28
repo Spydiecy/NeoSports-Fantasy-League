@@ -90,7 +90,8 @@ const Navbar = () => {
 
   return (
 
-    <div className='flex absolute gap-[30vw] top-3 gap-x-[40vw]  z-50'>
+
+    <div className='flex  sticky gap-[30vw] top-3 gap-x-[40vw]  z-50 '>
       <div className="left-part">
         <img className='h-20 pl-4' src="https://fantasy-extreme-assets.s3.us-east-005.backblazeb2.com/Compressed/logo/logo.png" alt="" />
       </div>
@@ -100,7 +101,7 @@ const Navbar = () => {
             <li className='cursor-pointer hover:text-gGlow transition-all duration-1000'>Matches</li>
           </Link>
           <Link to='/rewardCalculator'>
-            <li className='cursor-pointer hover:text-gGlow transition-all duration-1000'>Rewards Calculator</li>
+            <li className='cursor-pointer mr-9 hover:text-gGlow transition-all duration-1000'>Rewards</li>
           </Link>
           <li className='cursor-pointer hover:text-gGlow transition-all duration-1000'><Component></Component></li>
           <Link to="/fantasyextremeRules">
@@ -113,13 +114,14 @@ const Navbar = () => {
             <button 
               onClick={connectWallet} 
               className='border-white bg-white border-2 p-1 rounded-xl text-black px-4'
-            >
+              >
               {isConnected ? trimAddress(account) : 'CONNECT'}
             </button>
           </li>
         </ul>
       </div>
     </div>
+            
   );
 };
 
