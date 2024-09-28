@@ -7,31 +7,12 @@ export default function IPL() {
   const [matches, setMatches] = useState([]);
 
   // Fetch function to get match data
-  const fetchMatchData = async () => {
-    try {
-      // Fetch the JSON file from the public folder
-      const response = await fetch(IPL_data.json());  // Correct path if the file is in the public folder
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      const data = await response.json();
-      console.log("My matches are:", data);
 
-      setMatches(data);
-    } catch (error) {
-      console.error("Error fetching match data:", error);
-    }
-  };
-
-  // Use useEffect to fetch data when the component mounts
-  useEffect(() => {
-    // fetchMatchData();
-  }, []);
 
   return (
-    <div className='min-h-[100vh] w-full bg-black text-gGlow pt-40 px-20 flex flex-col items-center'>
+    <div className=' w-full bg-black text-gGlow pt-24 px-20 flex flex-col items-center'>
       <div className="top-bar flex justify-between w-[80vw] px-6">
-        <h1 className='text-4xl'>Matches</h1>
+        <h1 className='text-4xl'>IPL LEAGUES</h1>
 
         <Select
           items={[]}  // Update with relevant items or remove if not needed
