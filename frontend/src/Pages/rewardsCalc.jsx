@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure} from "@nextui-org/react";
 import {Input} from "@nextui-org/react";
 import {Select, SelectSection, SelectItem} from "@nextui-org/select";
@@ -51,7 +51,8 @@ const RewardsCalc = ({props}) => {
     setBackdrop(backdrop)
     onOpen();
   }
-
+  
+  const [show, setshow] = useState(true)
   return (
     <div className='bg-black h-[99.9vh]'>
        <div className="flex flex-wrap gap-3">
@@ -67,9 +68,12 @@ const RewardsCalc = ({props}) => {
           </Button>
         ))}  
       </div>
-      <Modal size={'xl'} backdrop={backdrop} isOpen={true}
+      <Modal size={'xl'} backdrop={backdrop} isOpen={show}
       scrollBehavior={scrollBehavior}
-      onClose={onClose} className="bg-black border-2 border-gray-600 rounded-2xl">
+      onClose={()=>{
+        setshow(false)
+        onClose()
+      }}  className="bg-[#121212] border-2 border-gray-600 rounded-2xl">
         <ModalContent>
           {(onClose) => (
             <>
@@ -82,7 +86,7 @@ const RewardsCalc = ({props}) => {
                   </ModalHeader>
               <ModalBody className='text-white'>
                <h2 className='text-gGlow'>Total Partitcipants</h2>
-               <Input type="number" color='default' label="Number" />
+               <Input type="number"  label="Number" />
                <div className="contest-entry-fee-div flex justify-between ">
                 <div className="type-gold-div text-sm w-44">
                   <h2>Select Context</h2>
@@ -107,6 +111,7 @@ const RewardsCalc = ({props}) => {
                 </div>
                </div>
                <hr className='border-2 border-gray-600' />
+               <img src={pool_image} alt="" srcset="" />
                <h1 className='text-2xl'>Rewards <span className='text-gGlow'>by Rank</span></h1>
                <div className='table-tag text-black'>
      
@@ -124,12 +129,7 @@ const RewardsCalc = ({props}) => {
     </Table>
     </div>
               </ModalBody>
-              <ModalFooter>
-                <Button color="danger" variant="light" onPress={onClose}>
-                  Close
-                </Button>
-                
-              </ModalFooter>
+             
             </>
           )}
         </ModalContent>
