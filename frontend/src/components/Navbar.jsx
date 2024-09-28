@@ -2,11 +2,11 @@ import React from 'react'
 // import discord from "../../src/assets/fantasyextreme.org/media.api-sports.io/i";
 const Navbar = () => {
   return (
-    <div className='border-2  border-black flex justify-between mt-6'>
-        <div className="left-part border-2 border-black">
+    <div className='  flex absolute gap-[30vw] top-3 justify-between'>
+        <div className="left-part">
             <img className='h-20' src="https://fantasy-extreme-assets.s3.us-east-005.backblazeb2.com/Compressed/logo/logo.png" alt="" />
         </div>
-        <div className="right-part border-2 border-black flex flex-col">
+        <div className="right-part flex flex-col">
             <ul className='right-list flex flex-row pr-11 gap-4 m-4 p-2 rounded-2xl border-2  bg-[#0C0C19] text-white text-sm justify-center items-center '>
                 <li className='cursor-pointer hover:text-gGlow transition-all duration-1000 '>Matches</li>
                 <li className='cursor-pointer hover:text-gGlow transition-all duration-1000 '>Rewards Calculator</li>
