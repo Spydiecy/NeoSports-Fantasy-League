@@ -15,11 +15,9 @@ const MatchesHoverCard = ({ match }) => {
     <div>
       <div className="mycard border-b-2 text-white border-white flex justify-evenly w-full h-20 items-center hover:border-b-gGlow transition-all duration-1000 cursor-pointer hover:bg-gray-900">
         <div className="mycard-1 underline text-sm hover:text-gGlow duration-700">
-          Create <br /> Team
+          <p>Create <br /> Team</p>
         </div>
-        <div className="mycard-2 underline text-sm hover:text-gGlow duration-700">
-          View <br /> Contests
-        </div>
+ 
         <div className="mycard-3 vs-div flex gap-5 justify-center items-center">
           <div className="1st-comp flex gap-1 justify-center items-center">
             <Tooltip content={competition1.name}>

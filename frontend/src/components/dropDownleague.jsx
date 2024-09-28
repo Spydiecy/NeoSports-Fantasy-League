@@ -50,7 +50,7 @@ export default function Component() {
                   className="px-4 py-2 cursor-pointer text-white hover:bg-gray-700 transition-colors duration-300 rounded-xl hover:text-[19px]"
                   // whileHover={{ scale: 1.05, x: 10 }}
                   onClick={() => {
-                    setSelectedLeague(league)
+                  
                     
                     setIsOpen(false)
                     Navigate('/Leagues/IPL')
