@@ -1,7 +1,10 @@
 import React from 'react';
 import Democard from '../democards/Democard';
 import football from '../../assets/football.png';
-import ResultsCard from '../ResultsCard/ResultsCard';
+import result1 from '../../assets/ResultsImages/1.png'
+import result2 from '../../assets/ResultsImages/2.png'
+import result3 from '../../assets/ResultsImages/3.png'
+import { ChevronRightIcon } from 'lucide-react';
 
 const ProgressBar = ({ value, maxValue, year }) => {
   const percentage = (value / maxValue) * 100;
@@ -66,6 +69,85 @@ const CircularProgress = ({ value, maxValue }) => {
   );
 };
 
+const ResultCard = ({ date, homeTeam, awayTeam, score, venue }) => (
+  <div className="bg-[#2a2a2a] rounded-lg p-4 w-[25vw] h-[25vh]  mx-2">
+    <div className="text-center mb-2">{date}</div>
+    <div className="flex justify-between items-center mb-2">
+      <div className="flex items-center">
+        <img src={homeTeam.logo} alt={homeTeam.name} className="w-8 h-8 mr-2" />
+        <span>{homeTeam.name}</span>
+      </div>
+      <div className="bg-[#3a3a3a] px-3 py-1 rounded-full">{score}</div>
+      <div className="flex items-center">
+        <span>{awayTeam.name}</span>
+        <img src={awayTeam.logo} alt={awayTeam.name} className="w-8 h-8 ml-2" />
+      </div>
+    </div>
+    <div className="text-center text-sm text-gray-400">{venue}</div>
+  </div>
+);
+
+const ResultsSlider = () => {
+  const [currentIndex, setCurrentIndex] = React.useState(0);
+  const results = [
+    {
+      date: 'Sep 29, 24',
+      homeTeam: { name: 'Osasuna', logo: result1 },
+      awayTeam: { name: 'Barcelona', logo: result2 },
+      score: '4-2',
+      venue: 'Estadio El Sadar, Iruñea'
+    },
+    {
+      date: 'Sep 28, 24',
+      homeTeam: { name: 'Bayern München', logo: result2 },
+      awayTeam: { name: 'Bayer Leverkusen', logo: result3 },
+      score: '1-1',
+      venue: 'Allianz Arena, München'
+    },
+    {
+      date: 'Sep 28, 24',
+      homeTeam: { name: 'Real Sociedad', logo: result3 },
+      awayTeam: { name: 'Valencia', logo: result1 },
+      score: '3-0',
+      venue: 'Reale Arena, Donostia-San Sebastián'
+    },
+  ];
+
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % results.length);
+    }, 5000); // Change slide every 5 seconds
+
+    return () => clearInterval(timer);
+  }, [results.length]);
+
+  return (
+    <div className="bg-black text-white py-16 px-4">
+      <h2 className="text-4xl font-bold text-center mb-8">
+        LATEST <span className="text-[#00F654]">RESULTS</span>
+      </h2>
+      <div className="flex overflow-hidden justify-center">
+        {results.map((result, index) => (
+          <div
+            key={index}
+            className="transition-transform duration-500 ease-in-out"
+            style={{
+              transform: `translateX(-${currentIndex * 100}%)`,
+            }}
+          >
+            <ResultCard {...result} />
+          </div>
+        ))}
+      </div>
+      <div className="flex justify-end mt-4">
+        <button className="flex items-center text-[#00F654] hover:underline">
+          View All <ChevronRightIcon className="ml-1" />
+        </button>
+      </div>
+    </div>
+  );
+};
+
 export default function Demo() {
   const cards = [
     { id: 1, title: 'Match 1', content: 'Team A 2 - 1 Team B' },
@@ -125,54 +207,30 @@ export default function Demo() {
         </div>
       </div>
 
-      <div className='history flex justify-center'>
-        <div
-          className="h-auto mb-[3vh] w-[85vw] rounded-2xl bg-[#1d1d1d] p-6
-             transition-all duration-300 ease-in-out
-             hover:relative
-             before:rounded-xl before:transition-all
-             before:duration-300 before:ease-in-out
-             before:opacity-0 hover:before:opacity-100
-             before:shadow-[0_0_15px_rgba(0,246,84,0.5)]
-             before:hover:shadow-[0_0_20px_rgba(0,246,84,0.7)]
-             flex flex-col mt-[10vw]
-             bg-gradient-to-r from-[#1d1d1d00] via-[#1d1d1d] to-[#615e5e]"
-        >
-          <div className="relative z-10 text-white flex flex-col justify-between flex-1 p-6">
-            <div className="flex flex-col items-center mb-4">
-              <h2 className="text-3xl font-bold">LATEST <span className='text-[#00F654]'>RESULTS</span></h2>
-            </div>
-            <div className='cards'>
-              <ResultsCard />
-            </div>
-          </div>
+      <ResultsSlider />
 
-     
-        </div>
-        
-      </div>
-      <div className="bg-black text-white py-16  px-[10vw]">
-            <h2 className="text-4xl font-bold text-center mb-8">
-              MARKET <span className="text-[#00F654]">VALUE</span>
-            </h2>
-            <p className="text-center mb-12 max-w-4xl mx-auto">
-              Fantasy Extreme is poised for continuous growth by attracting millions of passionate players and fans
-              worldwide. See the explosive growth of fantasy sports below
-            </p>
-            <div className="text-6xl font-bold text-center mb-12">4 BILLION PEOPLE</div>
-            <div className="flex flex-col md:flex-row justify-center items-center gap-12">
-              <div className="w-full md:w-1/3">
-                <h3 className="text-2xl font-bold mb-4 text-center md:text-left">Market Size</h3>
-                <CircularProgress value={35.67} maxValue={100} />
-              </div>
-              <div className="w-full md:w-2/3">
-                <ProgressBar value={20.69} maxValue={87.07} year="EST in 2021" />
-                <ProgressBar value={27.2} maxValue={87.07} year="EST in 2022" />
-                <ProgressBar value={30.95} maxValue={87.07} year="EST in 2023" />
-                <ProgressBar value={87.07} maxValue={87.07} year="EXP in 2031" />
-              </div>
-            </div>
+      <div className="bg-black text-white py-16   px-[10vw]">
+        <h2 className="text-4xl font-bold text-center mb-8">
+          MARKET <span className="text-[#00F654]">VALUE</span>
+        </h2>
+        <p className="text-center mb-12 max-w-4xl mx-auto">
+          Fantasy Extreme is poised for continuous growth by attracting millions of passionate players and fans
+          worldwide. See the explosive growth of fantasy sports below
+        </p>
+        <div className="text-6xl font-bold text-center mb-12">4 BILLION PEOPLE</div>
+        <div className="flex flex-col md:flex-row justify-center items-center gap-12">
+          <div className="w-full md:w-1/3">
+            <h3 className="text-2xl font-bold mb-4 text-center md:text-left">Market Size</h3>
+            <CircularProgress value={35.67} maxValue={100} />
           </div>
+          <div className="w-full md:w-2/3">
+            <ProgressBar value={20.69} maxValue={87.07} year="EST in 2021" />
+            <ProgressBar value={27.2} maxValue={87.07} year="EST in 2022" />
+            <ProgressBar value={30.95} maxValue={87.07} year="EST in 2023" />
+            <ProgressBar value={87.07} maxValue={87.07} year="EXP in 2031" />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

@@ -6,11 +6,12 @@ export default function Home() {
   return (
     <div className='min-h-[100vh] w-full bg-black -z-50'>
       <div
-        className='relative w-full h-[100vh] bg-black'
+        className='mt-[-11vh] w-full h-[100vh] bg-black'
         style={{
           backgroundImage: `url(${homebg})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
+       
         }}
       >
         {/* Overlay for blurring effect */}

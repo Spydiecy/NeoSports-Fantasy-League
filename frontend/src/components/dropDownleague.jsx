@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronDown } from "lucide-react"
 
@@ -13,6 +14,7 @@ const leagues = [
 ]
 
 export default function Component() {
+  const Navigate=useNavigate();
   const [isOpen, setIsOpen] = useState(false)
   const [selectedLeague, setSelectedLeague] = useState(leagues[0])
 
@@ -49,7 +51,9 @@ export default function Component() {
                   // whileHover={{ scale: 1.05, x: 10 }}
                   onClick={() => {
                     setSelectedLeague(league)
+                    
                     setIsOpen(false)
+                    Navigate('/Leagues/IPL')
                   }}
                 >
                   {league}
