@@ -1,9 +1,9 @@
 
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import Component from './dropDownleague'
 // import discord from "../../src/assets/fantasyextreme.org/media.api-sports.io/i";
-import React, { useState, useEffect } from 'react';
+
 import Web3 from 'web3';
 
 
