@@ -7,6 +7,7 @@ import './App.css';
 import RewardsCalc from './Pages/rewardsCalc';
 import { useState } from 'react';
 import User from './Pages/user';
+import IPL from './Pages/IPL';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Route path="/rewardCalculator" element={<RewardsCalc props={{isShow}}></RewardsCalc>} />
         <Route path="/userProfile" element={<User></User>} />
         <Route path="/fantasyextremeRules" element={<FantasyExtremeRules></FantasyExtremeRules>} />
+        <Route path="/leagues/IPL" element={<IPL></IPL>} />
         
         {/* Catch-all route that redirects to /home */}
         <Route path="*" element={<Navigate to="/home" />} />

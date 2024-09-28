@@ -33,7 +33,7 @@ export default function Footer() {
               ))}
             </ul>
           </nav>
-          <p className="text-green-500 font-bold mb-8 animate-pulse">100% ON CHAIN</p>
+         
         </div>
         <div className="border-t border-gray-800 pt-6 mt-6">
           <div className="flex justify-between items-center">
