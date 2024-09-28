@@ -3,12 +3,12 @@
 @tailwind utilities;
 @font-face {
   font-family: 'MyCustomFont';
-  src: url('../src//Fonts//Poppins-Medium.ttf') format('truetype');
+  src: url('./assets//fonts/nasalization-rg.otf') format('truetype');
   font-weight: 400; /* Regular */
   font-style: normal;
 }
 body {
-  font-family: 'MyCustomFont', sans-serif;
+  font-family: 'MyCustomFont';
   box-sizing: border-box;
   scroll-behavior: smooth;
   padding: 0;
