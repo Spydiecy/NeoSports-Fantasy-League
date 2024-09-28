@@ -3,8 +3,43 @@ import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDis
 import {Input} from "@nextui-org/react";
 import {Select, SelectSection, SelectItem} from "@nextui-org/select";
 import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, getKeyValue} from "@nextui-org/react";
+import pool_image from "../../src/assets/pool_image.png";
+const rows = [
+  {
+    key: "1",
+    name: "Tony Reichert",
+    role:"admin"
+  },
+  {
+    key: "2",
+    name: "Zoey Lang",
+    role:"admin"
+  },
+  {
+    key: "3",
+    name: "Zoey Lang",
+    role:"admin"
+    
+  },
+  {
+    key: "4",
+    name: "William Howard",
+  },
+];
 
+const columns = [
+  {
+    key: "name",
+    label: "NAME",
+  },
+  {
+    key: "role",
+    label: "ROLE",
+  },
+];
 const RewardsCalc = ({props}) => {
+  const [scrollBehavior, setScrollBehavior] = React.useState("inside");
+
   console.log("Props are::::",props);
   
   const {isOpen, onOpen, onClose} = useDisclosure();
@@ -32,7 +67,9 @@ const RewardsCalc = ({props}) => {
           </Button>
         ))}  
       </div>
-      <Modal size={'xl'} backdrop={backdrop} isOpen={true} onClose={onClose} className="bg-black border-2 border-gray-600 rounded-2xl">
+      <Modal size={'xl'} backdrop={backdrop} isOpen={true}
+      scrollBehavior={scrollBehavior}
+      onClose={onClose} className="bg-black border-2 border-gray-600 rounded-2xl">
         <ModalContent>
           {(onClose) => (
             <>
@@ -71,14 +108,27 @@ const RewardsCalc = ({props}) => {
                </div>
                <hr className='border-2 border-gray-600' />
                <h1 className='text-2xl'>Rewards <span className='text-gGlow'>by Rank</span></h1>
+               <div className='table-tag text-black'>
+     
+               <Table aria-label="Example table with dynamic content" className='text-black'>
+      <TableHeader columns={columns}>
+        {(column) => <TableColumn key={column.key}>{column.label}</TableColumn>}
+      </TableHeader>
+      <TableBody items={rows}>
+        {(item) => (
+          <TableRow key={item.key}>
+            {(columnKey) => <TableCell>{getKeyValue(item, columnKey)}</TableCell>}
+          </TableRow>
+        )}
+      </TableBody>
+    </Table>
+    </div>
               </ModalBody>
               <ModalFooter>
                 <Button color="danger" variant="light" onPress={onClose}>
                   Close
                 </Button>
-                <Button color="primary" onPress={onClose}>
-                  Action
-                </Button>
+                
               </ModalFooter>
             </>
           )}
