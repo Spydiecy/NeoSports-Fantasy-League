@@ -1,5 +1,5 @@
 import React from 'react'
-
+// import discord from "../../src/assets/fantasyextreme.org/media.api-sports.io/i";
 const Navbar = () => {
   return (
     <div className='border-2  border-black flex justify-between mt-6'>
