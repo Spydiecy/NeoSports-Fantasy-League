@@ -5,19 +5,14 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    colors: {
-      transparent: 'transparent',
-      current: 'currentColor',
-      'white': '#ffffff',
-      'purple': '#3f3cbb',
-      'gGlow': '#10C72B',
-      'metal': '#565584',
-      'tahiti': '#3ab7bf',
-      'silver': '#ecebff',
-      'bubble-gum': '#ff77e9',
-      'bermuda': '#78dcca',
+  
+    extend: {
+      colors: {
+        gGlow: '#12CC2D',
+        customRed: '#FF0000',
+        // Add more custom colors here
+      },
     },
-    extend: {},
     screens: {
       'sm': '450px',
       // => @media (min-width: 640px) { ... }
