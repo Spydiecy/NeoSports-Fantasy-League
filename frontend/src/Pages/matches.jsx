@@ -2,13 +2,13 @@ import React from 'react';
 import {animals} from "./data";
 import {Select, SelectItem} from "@nextui-org/react";
 import MatchesHoverCard from '../components/MatchesHoverCard';
+import ProgressBar from '../components/ProgressBar';
 
 
 export default function Matches() {
   return (
     <div className='min-h-[100vh] w-full bg-black text-gGlow pt-40 px-20 flex flex-col items-center'>
       <div className="top-bar  flex justify-between w-[80vw]   px-6">
-
       <h1 className='text-4xl'>
     Matches
       </h1>
@@ -24,6 +24,7 @@ export default function Matches() {
         </div>
         
         <div className='bg-[#1D1D1D] w-[80vw] h-[90vh] mt-5 rounded-3xl gap-3 flex flex-col pr-4 '>
+        <ProgressBar></ProgressBar>
         <div className='label-div flex justify-between px-7 mt-4 text-2xl text-white'>
         <h1>Action</h1>
         <h1>Matches</h1>

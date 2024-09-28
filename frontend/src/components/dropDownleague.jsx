@@ -6,9 +6,9 @@ import { ChevronDown } from "lucide-react"
 
 const leagues = [
   "League",
-  "UEFA Champions League",
+  "IPL",
   "La Liga",
-  "Premier League",
+  "Premier",
   "Bundesliga",
 ]
 
@@ -17,7 +17,7 @@ export default function Component() {
   const [selectedLeague, setSelectedLeague] = useState(leagues[0])
 
   return (
-    <div className="flex justify-center items-center  bg-gray-800  h-fit   w-fit ml-14">
+    <div className="flex justify-center items-center  bg-gray-800  h-fit   w-fit ml-11">
       <div className="absolute w-44">
         <motion.button
           className=" px-4 py-2 text-left bg-black text-white rounded-md focus:outline-none"
@@ -45,8 +45,8 @@ export default function Component() {
               {leagues.map((league) => (
                 <motion.li
                   key={league}
-                  className="px-4 py-2 cursor-pointer text-white hover:bg-gray-700 transition-colors duration-300 rounded-xl"
-                  whileHover={{ scale: 1.05, x: 10 }}
+                  className="px-4 py-2 cursor-pointer text-white hover:bg-gray-700 transition-colors duration-300 rounded-xl hover:text-[19px]"
+                  // whileHover={{ scale: 1.05, x: 10 }}
                   onClick={() => {
                     setSelectedLeague(league)
                     setIsOpen(false)
