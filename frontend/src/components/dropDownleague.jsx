@@ -5,8 +5,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { ChevronDown } from "lucide-react"
 
 const leagues = [
-  "All",
-  "Super League",
+  "League",
   "UEFA Champions League",
   "La Liga",
   "Premier League",
@@ -18,17 +17,17 @@ export default function Component() {
   const [selectedLeague, setSelectedLeague] = useState(leagues[0])
 
   return (
-    <div className="flex justify-center items-center  bg-gray-900  h-fit">
-      <div className="relative w-44">
+    <div className="flex justify-center items-center  bg-gray-800  h-fit   w-fit ml-14">
+      <div className="absolute w-44">
         <motion.button
-          className="w-full px-4 py-2 text-left bg-gray-800 text-white rounded-md focus:outline-none"
+          className=" px-4 py-2 text-left bg-black text-white rounded-md focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          <span className="flex justify-between items-center">
+          <span className="flex justify-between items-center rounded-2xl">
             {selectedLeague}
-            <ChevronDown className={`transform transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
+          
           </span>
         </motion.button>
         <AnimatePresence>
@@ -46,7 +45,7 @@ export default function Component() {
               {leagues.map((league) => (
                 <motion.li
                   key={league}
-                  className="px-4 py-2 cursor-pointer text-white hover:bg-gray-700 transition-colors duration-300"
+                  className="px-4 py-2 cursor-pointer text-white hover:bg-gray-700 transition-colors duration-300 rounded-xl"
                   whileHover={{ scale: 1.05, x: 10 }}
                   onClick={() => {
                     setSelectedLeague(league)
