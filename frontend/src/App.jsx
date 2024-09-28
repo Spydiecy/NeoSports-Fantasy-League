@@ -6,6 +6,7 @@ function App() {
   return (
     <Router>
       <Routes>
+    
         {/* Default route that redirects to /home */}
         <Route path="/" element={<Navigate to="/home" />} />
         
