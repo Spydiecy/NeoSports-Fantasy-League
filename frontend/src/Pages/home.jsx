@@ -1,16 +1,21 @@
 import React from 'react';
-import homebg from '../assets/homebg.jpg'; 
+import homebg from '../assets/homebg.jpg';
+import Demo from '../Components/DemoSection/Demo';
 
 export default function Home() {
   return (
-    <div className='h-[100vh] w-[98vw] bg-black '>
-    <div className='w-[98.9vw] h-[100vh]' style={{
-      backgroundImage: `url(${homebg})`, 
-      backgroundSize: 'cover',           
-      backgroundPosition: 'center',      
-                        
-    }}>
-    </div>
+    <div className='min-h-[100vh] w-[100vw] bg-black'>
+      {/* Section with the background image */}
+      <div className='w-full h-[100vh] bg-black' style={{
+        backgroundImage: `url(${homebg})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}>
+    
+      </div>
+      <div className="bg-black  text-white">
+        <Demo />
+      </div>
     </div>
   );
 }
