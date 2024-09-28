@@ -5,6 +5,7 @@ import './App.css';
 import RewardsCalc from './Pages/rewardsCalc';
 import { useState } from 'react';
 import User from './Pages/user';
+import FantasyExtremeRules from './Pages/myrules';
 
 function App() {
   const [isShow, setisShow] = useState(false)
@@ -20,6 +21,7 @@ function App() {
         <Route path="/matches" element={<Matches/>} />
         <Route path="/gameplayrules" element={<RewardsCalc props={{isShow}}></RewardsCalc>} />
         <Route path="/userProfile" element={<User></User>} />
+        <Route path="/fantasyextremeRules" element={<FantasyExtremeRules></FantasyExtremeRules>} />
         
         {/* Catch-all route that redirects to /home */}
         <Route path="*" element={<Navigate to="/home" />} />
