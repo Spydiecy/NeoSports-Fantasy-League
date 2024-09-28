@@ -9,6 +9,8 @@ import { useState } from 'react';
 import User from './Pages/user';
 import IPL from './Pages/IPL';
 
+import FootballTeamSelection from './Pages/FootBallTeamSelection';
+
 
 function App() {
   const [isShow, setisShow] = useState(false)
@@ -27,6 +29,7 @@ function App() {
         <Route path="/userProfile" element={<User></User>} />
         <Route path="/fantasyextremeRules" element={<FantasyExtremeRules></FantasyExtremeRules>} />
         <Route path="/leagues/IPL" element={<IPL></IPL>} />
+        <Route path="/footballgame" element={<FootballTeamSelection/>} />
         
         {/* Catch-all route that redirects to /home */}
         <Route path="*" element={<Navigate to="/home" />} />
