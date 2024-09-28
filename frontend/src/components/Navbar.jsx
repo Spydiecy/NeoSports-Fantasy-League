@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import Component from './dropDownleague'
 // import discord from "../../src/assets/fantasyextreme.org/media.api-sports.io/i";
-
 import Web3 from 'web3';
 
 
@@ -102,7 +101,7 @@ const Navbar = () => {
           <Link to='/rewardCalculator'>
             <li className='cursor-pointer hover:text-gGlow transition-all duration-1000'>Rewards Calculator</li>
           </Link>
-          <li className='cursor-pointer hover:text-gGlow transition-all duration-1000'>Leagues</li>
+          <li className='cursor-pointer hover:text-gGlow transition-all duration-1000'><Component></Component></li>
           <Link to="/fantasyextremeRules">
             <li className='cursor-pointer hover:text-gGlow transition-all duration-1000'>Gameplay Rules</li>
           </Link>

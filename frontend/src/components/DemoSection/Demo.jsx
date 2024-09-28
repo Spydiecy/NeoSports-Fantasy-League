@@ -3,17 +3,81 @@ import Democard from '../democards/Democard';
 import football from '../../assets/football.png';
 import ResultsCard from '../ResultsCard/ResultsCard';
 
-export default function Demo() {
-    const cards = [
-        { id: 1, title: 'Match 1', content: 'Team A 2 - 1 Team B' },
-        { id: 2, title: 'Match 2', content: 'Team C 0 - 0 Team D' },
-        { id: 3, title: 'Match 3', content: 'Team E 3 - 2 Team F' },
-        { id: 4, title: 'Match 4', content: 'Team G 1 - 1 Team i' },
-        { id: 5, title: 'Match 5', content: 'Team G 1 - 1 Team j' },
-        { id: 6, title: 'Match 6', content: 'Team G 1 - 1 Team k' },
-      ];
+const ProgressBar = ({ value, maxValue, year }) => {
+  const percentage = (value / maxValue) * 100;
   return (
-    <div className='bg-black'>
+    <div className="flex items-center mb-4">
+      <div className="w-24 text-right mr-4">${value} Billion</div>
+      <div className="flex-grow bg-gray-700 rounded-full h-4 overflow-hidden">
+        <div
+          className="bg-[#00F654] h-full rounded-full"
+          style={{ width: `${percentage}%` }}
+          role="progressbar"
+          aria-valuenow={value}
+          aria-valuemin={0}
+          aria-valuemax={maxValue}
+        ></div>
+      </div>
+      <div className="w-24 ml-4">{year}</div>
+    </div>
+  );
+};
+
+const CircularProgress = ({ value, maxValue }) => {
+  const percentage = (value / maxValue) * 100;
+  const strokeWidth = 10;
+  const radius = 50;
+  const circumference = 2 * Math.PI * radius;
+
+  return (
+    <div className="relative w-64 h-64">
+      <svg className="w-full h-full" viewBox="0 0 120 120">
+        <circle
+          className="text-gray-700"
+          strokeWidth={strokeWidth}
+          stroke="currentColor"
+          fill="transparent"
+          r={radius}
+          cx="60"
+          cy="60"
+        />
+        <circle
+          className="text-[#00F654]"
+          strokeWidth={strokeWidth}
+          strokeDasharray={circumference}
+          strokeDashoffset={circumference - (percentage / 100) * circumference}
+          strokeLinecap="round"
+          stroke="currentColor"
+          fill="transparent"
+          r={radius}
+          cx="60"
+          cy="60"
+          transform="rotate(-90 60 60)"
+        />
+        <text x="50%" y="50%" dominantBaseline="middle" textAnchor="middle" className="text-2xl font-bold fill-white">
+          ${value}
+        </text>
+        <text x="50%" y="65%" dominantBaseline="middle" textAnchor="middle" className="text-lg fill-white">
+          BILLIONS
+        </text>
+      </svg>
+      <div className="absolute bottom-0 left-0 right-0 text-center text-white">Curt in 2024</div>
+    </div>
+  );
+};
+
+export default function Demo() {
+  const cards = [
+    { id: 1, title: 'Match 1', content: 'Team A 2 - 1 Team B' },
+    { id: 2, title: 'Match 2', content: 'Team C 0 - 0 Team D' },
+    { id: 3, title: 'Match 3', content: 'Team E 3 - 2 Team F' },
+    { id: 4, title: 'Match 4', content: 'Team G 1 - 1 Team i' },
+    { id: 5, title: 'Match 5', content: 'Team G 1 - 1 Team j' },
+    { id: 6, title: 'Match 6', content: 'Team G 1 - 1 Team k' },
+  ];
+
+  return (
+    <div className='bg-black text-white'>
       <div className='headings'>
         <h1 className='text-4xl flex justify-center pt-10'>Demo</h1>
         <p className='flex justify-center text-base pt-2'>
@@ -27,6 +91,7 @@ export default function Demo() {
         </h1>
         <Democard />
       </div>
+
       <div className='history flex justify-center'>
         <div
           className="h-[52vh] relative w-[85vw] bg-[#3a3a3a] rounded-3xl p-6
@@ -54,16 +119,15 @@ export default function Demo() {
                 hover:bg-black hover:text-[#00F654] hover:border-[#00F654] ml-[68vw] mt-[1vw]
                 transition duration-300 ease-in-out 
                 rounded-xl">
-  PLAY NOW
-</button>
-
-
+              PLAY NOW
+            </button>
           </div>
         </div>
       </div>
+
       <div className='history flex justify-center'>
         <div
-        className="h-[50vh] mb-[3vh] w-[85vw] rounded-2xl bg-[#1d1d1d] p-6
+          className="h-auto mb-[3vh] w-[85vw] rounded-2xl bg-[#1d1d1d] p-6
              transition-all duration-300 ease-in-out
              hover:relative
              before:rounded-xl before:transition-all
@@ -71,27 +135,44 @@ export default function Demo() {
              before:opacity-0 hover:before:opacity-100
              before:shadow-[0_0_15px_rgba(0,246,84,0.5)]
              before:hover:shadow-[0_0_20px_rgba(0,246,84,0.7)]
-             flex mt-[10vw]
+             flex flex-col mt-[10vw]
              bg-gradient-to-r from-[#1d1d1d00] via-[#1d1d1d] to-[#615e5e]"
         >
-     
-          <div className="relative  z-10 text-white flex flex-col justify-between flex-1 p-6">
-            <div className="flex flex-col items-center  mb-4">
-              <h2 className="text-3xl font-bold ">LATEST <span className='text-[#00F654]'>RESULTS</span></h2>
-
+          <div className="relative z-10 text-white flex flex-col justify-between flex-1 p-6">
+            <div className="flex flex-col items-center mb-4">
+              <h2 className="text-3xl font-bold">LATEST <span className='text-[#00F654]'>RESULTS</span></h2>
             </div>
             <div className='cards'>
-                <ResultsCard/>
+              <ResultsCard />
             </div>
-          
-
-
-
           </div>
+
+     
         </div>
+        
       </div>
-      
+      <div className="bg-black text-white py-16  px-[10vw]">
+            <h2 className="text-4xl font-bold text-center mb-8">
+              MARKET <span className="text-[#00F654]">VALUE</span>
+            </h2>
+            <p className="text-center mb-12 max-w-4xl mx-auto">
+              Fantasy Extreme is poised for continuous growth by attracting millions of passionate players and fans
+              worldwide. See the explosive growth of fantasy sports below
+            </p>
+            <div className="text-6xl font-bold text-center mb-12">4 BILLION PEOPLE</div>
+            <div className="flex flex-col md:flex-row justify-center items-center gap-12">
+              <div className="w-full md:w-1/3">
+                <h3 className="text-2xl font-bold mb-4 text-center md:text-left">Market Size</h3>
+                <CircularProgress value={35.67} maxValue={100} />
+              </div>
+              <div className="w-full md:w-2/3">
+                <ProgressBar value={20.69} maxValue={87.07} year="EST in 2021" />
+                <ProgressBar value={27.2} maxValue={87.07} year="EST in 2022" />
+                <ProgressBar value={30.95} maxValue={87.07} year="EST in 2023" />
+                <ProgressBar value={87.07} maxValue={87.07} year="EXP in 2031" />
+              </div>
+            </div>
+          </div>
     </div>
-    
   );
 }
