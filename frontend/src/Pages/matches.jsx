@@ -1,6 +1,4 @@
 import React from 'react';
-import homebg from '../assets/homebg.jpg';
-import Demo from '../Components/DemoSection/Demo';
 import {animals} from "./data";
 import {Select, SelectItem} from "@nextui-org/react";
 import MatchesHoverCard from '../components/MatchesHoverCard';

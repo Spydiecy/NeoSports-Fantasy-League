@@ -1,7 +1,6 @@
 import React from 'react';
 import homebg from '../assets/homebg.jpg';
-import Demo from '../Components/DemoSection/Demo';
-import './Home.css'; // Make sure to create this CSS file
+import Demo from '../components/DemoSection/Demo';
 
 export default function Home() {
   return (
