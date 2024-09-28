@@ -4,8 +4,7 @@ import Demo from '../Components/DemoSection/Demo';
 
 export default function Home() {
   return (
-    <div className='min-h-[100vh] w-[100vw] bg-black'>
-      {/* Section with the background image */}
+    <div className='min-h-[100vh] w-full bg-black'>
       <div className='w-full h-[100vh] bg-black' style={{
         backgroundImage: `url(${homebg})`,
         backgroundSize: 'cover',
