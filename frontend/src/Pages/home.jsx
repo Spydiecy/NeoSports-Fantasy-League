@@ -2,6 +2,7 @@ import React from 'react';
 import homebg from '../assets/homebg.jpg';
 import Demo from '../components/DemoSection/Demo';
 import Videoplayer from '../components/VideoPlayer/Videoplayer';
+import  {Link}  from 'react-router-dom';
 
 export default function Home() {
   return (
@@ -26,9 +27,11 @@ export default function Home() {
           <p className="text-xl mb-8 max-w-2xl text-white animate-fade-in">
             Experience the future of fantasy sports with cutting-edge technology and immersive gameplay. Join now and dominate the league!
           </p>
+          <Link to='/leagues/football'>
           <button className="join-button bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full text-lg transition duration-300 ease-in-out transform hover:scale-105">
             Join League
           </button>
+          </Link>
         </div>
       </div>
 
