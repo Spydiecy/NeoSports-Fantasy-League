@@ -16,7 +16,9 @@ export default function FantasyExtremeRules() {
         <p className="mb-4">We are providing a comprehensive guide on how you can become a manager and enter the contests on Fantasy Extreme. Please refer to the below guidelines.</p>
         <ul className="list-disc list-inside mb-6 space-y-2">
           <li className="text-green-400">Create your virtual team</li>
-          <li className="text-green-400">Select 11 players, 7 substitutes and 2 goalkeepers for each single match</li>
+          <li className="text-green-400">Select 3 forwards, 5 midfielders, 5 defenders, and 2 goalkeepers, in order to complete your team selection.
+
+</li>
           <li className="text-green-400">Join the contest</li>
           <li className="text-green-400">Manage the team during the match</li>
           <li className="text-green-400">Get instant updates on your team's status as the contest concludes</li>
