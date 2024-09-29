@@ -4,10 +4,10 @@ import football from '../../assets/football.png';
 import result1 from '../../assets/ResultsImages/1.png'
 import result2 from '../../assets/ResultsImages/2.png'
 import result3 from '../../assets/ResultsImages/3.png'
-import { ChevronRightIcon } from 'lucide-react';
+import { ChevronRightIcon} from 'lucide-react';
 import Videoplayer from '../VideoPlayer/Videoplayer';
 import ScrollingCards from '../ScrollingCards';
-
+import {Link} from "react-router-dom";
 const ProgressBar = ({ value, maxValue, year }) => {
   const percentage = (value / maxValue) * 100;
   return (
@@ -131,9 +131,11 @@ const ResultsSlider = () => {
       <ScrollingCards></ScrollingCards>
      
       <div className="flex justify-end mt-4">
+        <Link to={'/matches'}>
         <button className="flex items-center text-[#00F654] hover:underline">
           View All <ChevronRightIcon className="ml-1" />
         </button>
+        </Link>
       </div>
     </div>
   );
