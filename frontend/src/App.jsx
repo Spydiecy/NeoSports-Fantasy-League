@@ -7,7 +7,7 @@ import './App.css';
 import RewardsCalc from './Pages/rewardsCalc';
 import { useState } from 'react';
 import User from './Pages/user';
-import IPL from './Pages/IPL';
+import FootballLeagues from './Pages/FootballLeagues';
 import Footer from '../src/components/Footer'
 
 import FootballTeamSelection from './Pages/FootBallTeamSelection';
@@ -29,7 +29,7 @@ function App() {
         <Route path="/rewardCalculator" element={<RewardsCalc props={{isShow}}></RewardsCalc>} />
         <Route path="/userProfile" element={<User></User>} />
         <Route path="/fantasyextremeRules" element={<FantasyExtremeRules></FantasyExtremeRules>} />
-        <Route path="/leagues/IPL" element={<IPL></IPL>} />
+        <Route path="/leagues/IPL" element={<FootballLeagues></FootballLeagues>} />
 
         <Route path="/footballgame" element={<FootballTeamSelection/>} />
         

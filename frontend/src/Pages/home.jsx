@@ -6,18 +6,18 @@ export default function Home() {
   return (
     <div className='min-h-[100vh] w-full bg-black -z-50'>
       <div
-        className='mt-[-11vh] w-full h-[100vh] bg-black'
+        className='relative mt-[-11vh] w-full h-[100vh] bg-black'
         style={{
           backgroundImage: `url(${homebg})`,
           backgroundSize: 'cover',
-          backgroundPosition: 'top',
-          backgroundRepeat:'no-repeat'
-       
+          backgroundPosition: 'bottom ',
+          backgroundRepeat: 'no-repeat',
         }}
       >
-        {/* home  */}
+        {/* Overlay for darkening the background */}
         <div className="absolute inset-0 bg-black opacity-50 backdrop-blur-sm" />
-        
+
+        {/* Text and button section */}
         <div className="absolute inset-0 flex flex-col items-center justify-center text-gray-300 text-center">
           <h1 className="text-6xl font-bold mb-4 animate-pulse">
             Neo Sports Fantasy League
@@ -30,11 +30,11 @@ export default function Home() {
           </button>
         </div>
       </div>
+
+      {/* Demo Section */}
       <div className="bg-black text-white">
         <Demo />
       </div>
-      
-
     </div>
   );
 }

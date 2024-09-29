@@ -5,7 +5,7 @@ import { animals } from './data'; // Assuming this is correct
 import { Select, SelectItem } from '@nextui-org/react';
 import MatchesHoverCard from '../components/MatchesHoverCard';
 import ProgressBar from '../components/ProgressBar';
-import IPL_data from '../Pages/IPL_data'; // Import your match data
+import Football_Data from './Football_data'; // Import your match data
 
 // Helper function to determine match status based on current time
 const getMatchStatus = (match) => {
@@ -26,7 +26,7 @@ export default function Matches() {
   const [currentDate, setCurrentDate] = useState(new Date());
 
   // Update match statuses
-  const updatedMatches = IPL_data.map(match => ({
+  const updatedMatches = Football_Data.map(match => ({
     ...match,
     status: getMatchStatus(match)
   }));

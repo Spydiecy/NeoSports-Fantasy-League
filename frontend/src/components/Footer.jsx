@@ -1,12 +1,13 @@
-import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Footer() {
-  const [animate, setAnimate] = useState(false)
+  const Navigate = useNavigate();
+  const [animate, setAnimate] = useState(false);
 
   useEffect(() => {
-    setAnimate(true)
-  }, [])
+    setAnimate(true);
+  }, []);
 
   return (
     <footer className="bg-black text-white py-8">
@@ -23,17 +24,21 @@ export default function Footer() {
           </h2>
           <nav className="mb-4">
             <ul className="flex space-x-6">
-              {['MATCH', 'PLAYERS', 'LEAGUES', 'GAMEPLAY RULES', 'CONTACT US'].map((item) => (
-                <li key={item}>
-                  <span className="hover:text-green-500 transition-colors duration-300">
-                    {item}
-                  </span>
-                  
+              {[
+                { name: 'MATCH', path: '/matches' },
+                { name: 'PLAYERS', path: '/players' },
+                { name: 'LEAGUES', path: '/leagues/IPL' },
+                { name: 'GAMEPLAY RULES', path: '/fantasyextremeRules' },
+                { name: 'CONTACT US', path: '/contact' },
+              ].map((item) => (
+                <li key={item.name}>
+                  <Link to={item.path} className="hover:text-green-500 transition-colors duration-300">
+                    {item.name}
+                  </Link>
                 </li>
               ))}
             </ul>
           </nav>
-         
         </div>
         <div className="border-t border-gray-800 pt-6 mt-6">
           <div className="flex justify-between items-center">
@@ -55,5 +60,5 @@ export default function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }

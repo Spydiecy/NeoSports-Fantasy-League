@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { X, Youtube, Facebook, Linkedin, Music, Search, ChevronDown } from 'lucide-react'
 import pitch from '../assets/pitch.png'
 import playerImg from '../assets/player.png'
+import Footballdata from '../Pages/Football_data'
 export default function EnhancedFootballTeamSelection() {
   const [budget, setBudget] = useState(140)
   const [selectedPlayers, setSelectedPlayers] = useState([])
@@ -9,7 +10,8 @@ export default function EnhancedFootballTeamSelection() {
   const [formation, setFormation] = useState('3-4-3')
   const [activeTab, setActiveTab] = useState('Goalkeeper')
   const [searchTerm, setSearchTerm] = useState('')
-  const [selectionMode, setSelectionMode] = useState('main') // 'main' or 'substitute'
+  const [selectionMode, setSelectionMode] = useState('main') 
+  
 
   const positions = [
     { name: 'Goalkeeper', limit: 1 },
@@ -17,7 +19,6 @@ export default function EnhancedFootballTeamSelection() {
     { name: 'Midfielder', limit: 4 },
     { name: 'Forward', limit: 3 },
   ]
-
   const players = [
     { id: 1, name: 'Li Yuefeng', team: 'Tianjin Teda', price: 10, number: 1, position: 'Goalkeeper' },
     { id: 2, name: 'Zhang Linpeng', team: 'Guangzhou Evergrande', price: 15, number: 5, position: 'Defender' },
@@ -117,13 +118,18 @@ export default function EnhancedFootballTeamSelection() {
         <div className="absolute left-1/2 top-1/2 w-[20%] h-[20%] border-2 border-white opacity-50 rounded-full transform -translate-x-1/2 -translate-y-1/2" />
       </div>
       
-      {/* Top banner */}
-      <div className="absolute left-0 right-0 top-0 bg-gray-800 bg-opacity-80 p-4 flex justify-between items-center">
+   
+      <div className="absolute left-0 right-0 top-0 bg-gray-800 bg-opacity-80 p-4 flex  justify-between items-center">
+      {Footballdata.map((match , index)=>
+      {
         <div className="flex items-center space-x-4">
-          <img src="/placeholder.svg?height=50&width=50" alt="Team 1 logo" className="w-12 h-12" />
+          <img src={`${match.competition1.image}`}    alt={`${match.competition1.name} logo`} className="w-12 h-12" />
           <span className="text-2xl font-bold">VS</span>
-          <img src="/placeholder.svg?height=50&width=50" alt="Team 2 logo" className="w-12 h-12" />
+          <img src={match.competition2.image}alt="Team 2 logo" className="w-12 h-12" />
         </div>
+
+      })}
+       
         <div className="flex items-center space-x-8">
           <div>
             <div className="text-sm">BUDGET</div>
