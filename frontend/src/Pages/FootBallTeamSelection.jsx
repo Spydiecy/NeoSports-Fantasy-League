@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { X, Youtube, Facebook, Linkedin, Music, Search, ChevronDown } from 'lucide-react'
+import { useParams } from 'react-router-dom';
 import pitch from '../assets/pitch.png'
 import playerImg from '../assets/player.png'
 import Footballdata from '../Pages/Football_data'
+import { Tooltip } from '@nextui-org/react'
+import IPL_data from "./Football_data";
 export default function EnhancedFootballTeamSelection() {
   const [budget, setBudget] = useState(140)
   const [selectedPlayers, setSelectedPlayers] = useState([])
@@ -47,6 +50,8 @@ export default function EnhancedFootballTeamSelection() {
   ]
 
   const addPlayer = (player) => {
+    const { id } = useParams();
+    let myid=id;
     const targetTeam = selectionMode === 'main' ? selectedPlayers : substitutes
     const setTargetTeam = selectionMode === 'main' ? setSelectedPlayers : setSubstitutes
     const maxPlayers = selectionMode === 'main' ? 11 : 7
@@ -131,25 +136,7 @@ export default function EnhancedFootballTeamSelection() {
       })}
        
         <div className="flex items-center space-x-8">
-          <div>
-          <div className='mycard-3 vs-div flex gap-5 justify-center items-center'>
-          <div className='1st-comp flex gap-1 justify-center items-center'>
-            <Tooltip content={competition1.name}>
-              <h1>{competition1.name}</h1>
-            </Tooltip>
-            <img className='h-6' src={competition1.image} alt={competition1.name} />
-          </div>
-          vs
-          <div className='2nd-comp flex gap-1 justify-center items-center'>
-            <img className='h-6' src={competition2.image} alt={competition2.name} />
-            <Tooltip content={competition2.name}>
-              <h1>{competition2.name}</h1>
-            </Tooltip>
-          </div>
-        </div>
-            <div className="text-sm">BUDGET</div>
-            <div className="text-3xl font-bold">{budget}</div>
-          </div>
+          
           <div>
             <div className="text-sm">SELECTED PLAYERS</div>
             <div className="text-3xl font-bold">{selectedPlayers.length}</div>
