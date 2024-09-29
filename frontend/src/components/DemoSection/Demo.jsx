@@ -207,9 +207,7 @@ export default function Demo() {
           </div>
         </div>
       </div>
-
       <ResultsSlider />
-
       <div className="bg-black text-white py-16   px-[10vw]">
         <h2 className="text-4xl font-bold text-center mb-8" data-aos="fade-up ">
           MARKET <span className="text-[#00F654]">VALUE</span>
