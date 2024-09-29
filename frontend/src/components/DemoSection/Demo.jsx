@@ -6,6 +6,7 @@ import result2 from '../../assets/ResultsImages/2.png'
 import result3 from '../../assets/ResultsImages/3.png'
 import { ChevronRightIcon } from 'lucide-react';
 import Videoplayer from '../VideoPlayer/Videoplayer';
+import ScrollingCards from '../ScrollingCards';
 
 const ProgressBar = ({ value, maxValue, year }) => {
   const percentage = (value / maxValue) * 100;
@@ -127,19 +128,8 @@ const ResultsSlider = () => {
       <h2 className="text-4xl font-bold text-center mb-8">
         LATEST <span className="text-[#00F654]">RESULTS</span>
       </h2>
-      <div className="flex overflow-hidden justify-center">
-        {results.map((result, index) => (
-          <div
-            key={index}
-            className="transition-transform duration-500 ease-in-out"
-            style={{
-              transform: `translateX(-${currentIndex * 100}%)`,
-            }}
-          >
-            <ResultCard {...result} />
-          </div>
-        ))}
-      </div>
+      <ScrollingCards></ScrollingCards>
+     
       <div className="flex justify-end mt-4">
         <button className="flex items-center text-[#00F654] hover:underline">
           View All <ChevronRightIcon className="ml-1" />
