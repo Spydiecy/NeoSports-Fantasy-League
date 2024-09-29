@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Democard from '../democards/Democard';
 import football from '../../assets/football.png';
 import result1 from '../../assets/ResultsImages/1.png'
@@ -8,7 +8,13 @@ import { ChevronRightIcon} from 'lucide-react';
 import Videoplayer from '../VideoPlayer/Videoplayer';
 import ScrollingCards from '../ScrollingCards';
 import {Link} from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
 const ProgressBar = ({ value, maxValue, year }) => {
+  useEffect(() => {
+    AOS.init({duration:1500});
+    // AOS.refresh();
+  }, []);
   const percentage = (value / maxValue) * 100;
   return (
     <div className="flex items-center mb-4">
@@ -125,7 +131,7 @@ const ResultsSlider = () => {
 
   return (
     <div className="bg-black text-white py-16 px-4">
-      <h2 className="text-4xl font-bold text-center mb-8">
+      <h2 data-aos="fade-left" className="text-4xl font-bold text-center mb-8">
         LATEST <span className="text-[#00F654]">RESULTS</span>
       </h2>
       <ScrollingCards></ScrollingCards>
@@ -154,18 +160,18 @@ export default function Demo() {
   return (
     <div className='bg-black text-white'>
       <div className='headings'>
-        <h1 className='text-4xl flex justify-center pt-10'>Demo</h1>
-        <p className='flex justify-center text-base pt-2'>
+        <h1 className='text-4xl flex justify-center pt-10' data-aos="fade-down">Demo</h1>
+        <p className='flex justify-center text-base pt-2' data-aos="fade-left">
           Click to watch the complete demo and experience the thrill of strategic team management in Fantasy Extreme—where every decision counts!
         </p>
       </div>
 
     <Videoplayer></Videoplayer>
       <div className='cards'>
-        <h1 className='text-4xl flex justify-center pt-20'>
+        <h1 data-aos="fade-down" className='text-4xl flex justify-center pt-20'>
           HOW IT <span className='text-[#00F654]'>WORKS</span>
         </h1>
-        <Democard />
+        <Democard  />
       </div>
 
       <div className='history flex justify-center'>
@@ -187,9 +193,9 @@ export default function Demo() {
           <div className="relative z-10 text-white flex flex-col justify-between flex-1 p-6">
             <div className="flex flex-col items-end mb-4">
               <h2 className="text-2xl font-bold text-right"></h2>
-              <h3 className="text-4xl font-semibold text-right">About <span className='text-[#00F654]'>Fantasy</span></h3>
+              <h3 data-aos="fade-up" className="text-4xl font-semibold text-right">About <span className='text-[#00F654]'>Fantasy</span></h3>
             </div>
-            <p className="text-base mr-0 w-[55vw] ml-[25vw] text-right">
+            <p data-aos="fade-up" className="text-base mr-0 w-[55vw] ml-[25vw] text-right">
               Take your love for soccer to the next level with fantasy football. Build your own virtual dream team by drafting real footballers. Their performances on the pitch - goals scored, assists made, clean sheets kept - translate into points for your team. You'll compete against friends or online leagues, strategizing your picks, managing injuries, and watching your team rack up. It's a fun and engaging way to experience the beautiful game, combining the thrill of real-world soccer with the challenge of building and managing your own champion squad.
             </p>
             <button className="bg-white h-[20vh] text-black border border-black 
@@ -205,18 +211,18 @@ export default function Demo() {
       <ResultsSlider />
 
       <div className="bg-black text-white py-16   px-[10vw]">
-        <h2 className="text-4xl font-bold text-center mb-8">
+        <h2 className="text-4xl font-bold text-center mb-8" data-aos="fade-up ">
           MARKET <span className="text-[#00F654]">VALUE</span>
         </h2>
         <p className="text-center mb-12 max-w-4xl mx-auto">
           Fantasy Extreme is poised for continuous growth by attracting millions of passionate players and fans
           worldwide. See the explosive growth of fantasy sports below
         </p>
-        <div className="text-6xl font-bold text-center mb-12">4 BILLION PEOPLE</div>
+        <div data-aos="fade-down" className="text-6xl font-bold text-center mb-12">4 BILLION PEOPLE</div>
         <div className="flex flex-col md:flex-row justify-center items-center gap-12">
           <div className="w-full md:w-1/3">
-            <h3 className="text-2xl font-bold mb-4 text-center md:text-left">Market Size</h3>
-            <CircularProgress value={35.67} maxValue={100} />
+            <h3 data-aos="fade-left" className="text-2xl font-bold mb-4 text-center md:text-left">Market Size</h3>
+            <CircularProgress value={35.67}  maxValue={100} />
           </div>
           <div className="w-full md:w-2/3">
             <ProgressBar value={20.69} maxValue={87.07} year="EST in 2021" />
