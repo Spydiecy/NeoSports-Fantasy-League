@@ -2,13 +2,17 @@ import React, { useState, useEffect } from 'react'
 import pitch from '../assets/pitch.png'
 import playerImg from '../assets/player.png'
 import { X, Youtube, Facebook, Linkedin, Music, Search, ChevronDown } from 'lucide-react'
+import IPL_data from '../Pages/IPL_data'
 
 export default function FootballTeamSelection() {
   const [budget, setBudget] = useState(140)
   const [selectedPlayers, setSelectedPlayers] = useState([])
+  const [substitutes, setSubstitutes] = useState([])
   const [formation, setFormation] = useState('3-4-3')
   const [activeTab, setActiveTab] = useState('Goalkeeper')
   const [searchTerm, setSearchTerm] = useState('')
+  const [currentMatch, setCurrentMatch] = useState(IPL_data[0])
+  const [isSubstitute, setIsSubstitute] = useState(false)
 
   const positions = [
     { name: 'Goalkeeper', limit: 1 },
@@ -18,29 +22,40 @@ export default function FootballTeamSelection() {
   ]
 
   const players = [
-    { id: 1, name: 'Li Yuefeng', team: 'Tianjin Teda', price: 10, number: 1, position: 'Goalkeeper' },
-    { id: 2, name: 'Zhang Linpeng', team: 'Guangzhou Evergrande', price: 15, number: 5, position: 'Defender' },
-    { id: 3, name: 'Wu Xi', team: 'Jiangsu Suning', price: 12, number: 8, position: 'Midfielder' },
-    { id: 4, name: 'Wu Lei', team: 'Shanghai SIPG', price: 20, number: 7, position: 'Forward' },
-    // Add more players as needed
+    { id: 1, name: 'Wang Zhenghao', team: 'Tianjin Teda', price: 0, number: 3, position: 'Defender' },
+    { id: 2, name: 'Wang Xianjun', team: 'Tianjin Teda', price: 0, number: 4, position: 'Defender' },
+    { id: 3, name: 'Yan Zihao', team: 'Shijiazhuang Y. J.', price: 0, number: 5, position: 'Defender' },
+    { id: 4, name: 'Yu Yang', team: 'Tianjin Teda', price: 0, number: 5, position: 'Defender' },
+    { id: 5, name: 'A. Obileye', team: 'Shijiazhuang Y. J.', price: 0, number: 6, position: 'Defender' },
+    { id: 6, name: 'Han Pengfei', team: 'Tianjin Teda', price: 0, number: 6, position: 'Defender' },
+    // Add more players for other positions
   ]
 
   const addPlayer = (player) => {
-    if (selectedPlayers.length < 11 && 
-        selectedPlayers.filter(p => p.position === player.position).length < positions.find(pos => pos.name === player.position).limit &&
+    const targetArray = isSubstitute ? substitutes : selectedPlayers
+    const setTargetArray = isSubstitute ? setSubstitutes : setSelectedPlayers
+    const maxPlayers = isSubstitute ? 7 : 11
+
+    if (targetArray.length < maxPlayers &&
+        targetArray.filter(p => p.position === player.position).length < positions.find(pos => pos.name === player.position).limit &&
         budget >= player.price) {
-      setSelectedPlayers([...selectedPlayers, player])
+      setTargetArray([...targetArray, player])
       setBudget(budget - player.price)
     }
   }
 
-  const removePlayer = (player) => {
-    setSelectedPlayers(selectedPlayers.filter(p => p.id !== player.id))
+  const removePlayer = (player, isSubstitute) => {
+    if (isSubstitute) {
+      setSubstitutes(substitutes.filter(p => p.id !== player.id))
+    } else {
+      setSelectedPlayers(selectedPlayers.filter(p => p.id !== player.id))
+    }
     setBudget(budget + player.price)
   }
 
   const resetSelection = () => {
     setSelectedPlayers([])
+    setSubstitutes([])
     setBudget(140)
   }
 
@@ -74,9 +89,9 @@ export default function FootballTeamSelection() {
       {/* Top banner */}
       <div className="absolute top-0 left-0 right-0 bg-gray-800 bg-opacity-80 p-4 flex justify-between items-center">
         <div className="flex items-center space-x-4">
-          <img src="/placeholder.svg?height=50&width=50" alt="Team 1 logo" className="w-12 h-12" />
+          <img src={currentMatch.competition1.image} alt={currentMatch.competition1.name} className="w-12 h-12" />
           <span className="text-2xl font-bold">VS</span>
-          <img src="/placeholder.svg?height=50&width=50" alt="Team 2 logo" className="w-12 h-12" />
+          <img src={currentMatch.competition2.image} alt={currentMatch.competition2.name} className="w-12 h-12" />
         </div>
         <div className="flex items-center space-x-8">
           <div>
@@ -98,7 +113,7 @@ export default function FootballTeamSelection() {
       </div>
 
       {/* Player selection controls */}
-      <div className="absolute  left-4 right-4 bg-gray-800 bg-opacity-80 p-4 rounded-lg top-[95vh] border-2 border-blue-600">
+      <div className="absolute left-4 right-4 top-[64vh] bg-gray-800 bg-opacity-80 p-4 rounded-lg bottom-4 border-2 border-blue-600">
         <div className="flex justify-between items-center mb-4">
           <div className="text-xl font-bold">Player Selection</div>
           <div className="flex items-center space-x-4">
@@ -118,8 +133,18 @@ export default function FootballTeamSelection() {
         </div>
 
         <div className="flex mb-4">
-          <div className="flex-1 bg-green-500 p-2 rounded-l">Player Selection</div>
-          <div className="flex-1 bg-gray-700 p-2 rounded-r">Substitute Selection</div>
+          <button
+            className={`flex-1 p-2 rounded-l ${!isSubstitute ? 'bg-green-500' : 'bg-gray-700'}`}
+            onClick={() => setIsSubstitute(false)}
+          >
+            Player Selection
+          </button>
+          <button
+            className={`flex-1 p-2 rounded-r ${isSubstitute ? 'bg-green-500' : 'bg-gray-700'}`}
+            onClick={() => setIsSubstitute(true)}
+          >
+            Substitute Selection
+          </button>
         </div>
 
         <div className="relative mb-4">
@@ -168,9 +193,12 @@ export default function FootballTeamSelection() {
                     <button
                       onClick={() => addPlayer(player)}
                       className="bg-green-500 text-white px-2 py-1 rounded"
-                      disabled={selectedPlayers.some(p => p.id === player.id) || budget < player.price}
+                      disabled={
+                        (isSubstitute ? substitutes : selectedPlayers).some(p => p.id === player.id) || 
+                        budget < player.price
+                      }
                     >
-                      {selectedPlayers.some(p => p.id === player.id) ? 'Selected' : 'Add'}
+                      {(isSubstitute ? substitutes : selectedPlayers).some(p => p.id === player.id) ? 'Selected' : 'Add'}
                     </button>
                   </td>
                   <td className="p-2">{player.name}</td>
@@ -196,9 +224,9 @@ export default function FootballTeamSelection() {
               transform: 'translate(-50%, -50%)',
             }}
           >
-            <img src={playerImg} alt={player.name} className="w-24 h-24" />
+            <img src={playerImg} alt={player.name} className="w-16 h-16" />
             <button
-              onClick={() => removePlayer(player)}
+              onClick={() => removePlayer(player, false)}
               className="absolute top-0 right-0 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center"
               aria-label={`Remove ${player.name}`}
             >
@@ -207,10 +235,32 @@ export default function FootballTeamSelection() {
             <div className="text-xs mt-1 text-center bg-black bg-opacity-50 rounded px-1">
               {player.name}
             </div>
-       
           </div>
         )
       })}
+
+      {/* Substitute players */}
+      <div className="absolute top-4 right-4 bg-gray-800 bg-opacity-80 p-4 rounded-lg">
+        <h3 className="text-lg font-bold mb-2">Substitutes</h3>
+        {substitutes.map((player, index) => (
+          <div key={player.id} className="flex items-center mb-2">
+            <img src={playerImg} alt={player.name} className="w-8 h-8 mr-2" />
+            <span>{player.name}</span>
+            <button
+              onClick={() => removePlayer(player, true)}
+              className="ml-2 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center"
+              aria-label={`Remove ${player.name}`}
+            >
+              <X className="w-3 h-3" />
+            </button>
+          </div>
+        ))}
+      </div>
+
+      {/* Match info banner */}
+      <div className="absolute bottom-0 left-0 right-0 bg-gray-800 bg-opacity-80 p-2 text-center">
+        {currentMatch.competition1.name} {currentMatch.score} {currentMatch.competition2.name} | {currentMatch.date} {currentMatch.time} | {currentMatch.stadium}, {currentMatch.country}
+      </div>
     </div>
   )
 }

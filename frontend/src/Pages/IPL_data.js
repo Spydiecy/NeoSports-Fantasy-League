@@ -9,7 +9,7 @@ const IPL_data=[
         "image": "https://media.api-sports.io/football/teams/168.png"
       },
       "score": "1-1",
-      "date": "Sep 29, 24",
+      "date": "Sep 30, 24",
       "time": "10:00 PM",
       "stadium": "München",
       "country": "Germany"
@@ -24,7 +24,7 @@ const IPL_data=[
         "image": "https://media.api-sports.io/football/teams/537.png"
       },
       "score": "3-0",
-      "date": "Sep 29, 24",
+      "date": "Oct 1, 24",
       "time": "10:00 PM",
       "stadium": "Sebastián",
       "country": "Spain"
@@ -39,7 +39,7 @@ const IPL_data=[
         "image": "https://media.api-sports.io/football/teams/537.png"
       },
       "score": "1-2",
-      "date": "Sep 29, 24",
+      "date": "Sep 21, 24",
       "time": "10:00 PM",
       "stadium": "West Midlands",
       "country": "England"
@@ -54,7 +54,7 @@ const IPL_data=[
         "image": "https://media.api-sports.io/football/teams/51.png"
       },
       "score": "1-1",
-      "date": "Sep 29, 24",
+      "date": "Oct 5, 24",
       "time": "07:45 PM",
       "stadium": "Madrid",
       "country": "Spain"
@@ -70,7 +70,7 @@ const IPL_data=[
       },
       "score": "2-1",
       "date": "Sep 29, 24",
-      "time": "07:30 PM",
+      "time": "07:49 AM",
       "stadium": "Liverpool",
       "country": "England"
     },

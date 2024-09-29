@@ -13,7 +13,7 @@ const leagues = [
   "Bundesliga",
 ]
 
-export default function Component() {
+export default function dropDialogue() {
   const Navigate=useNavigate();
   const [isOpen, setIsOpen] = useState(false)
   const [selectedLeague, setSelectedLeague] = useState(leagues[0])
@@ -22,7 +22,7 @@ export default function Component() {
     <div className="flex justify-center items-center  bg-gray-800  h-fit   w-fit ml-11">
       <div className="absolute w-44">
         <motion.button
-          className=" px-4 py-2 text-left bg-black text-white rounded-md focus:outline-none"
+          className=" px-4 py-2 text-left  text-white rounded-md focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -53,7 +53,7 @@ export default function Component() {
                   
                     
                     setIsOpen(false)
-                    Navigate('/Leagues/IPL')
+                    Navigate('/leagues/IPL')
                   }}
                 >
                   {league}

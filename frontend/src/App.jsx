@@ -8,6 +8,7 @@ import RewardsCalc from './Pages/rewardsCalc';
 import { useState } from 'react';
 import User from './Pages/user';
 import IPL from './Pages/IPL';
+import Footer from '../src/Components/Footer'
 
 import FootballTeamSelection from './Pages/FootBallTeamSelection';
 
@@ -35,6 +36,7 @@ function App() {
 
         <Route path="*" element={<Navigate to="/home" />} />
       </Routes>
+      {/* <Footer></Footer> */}
     </Router>
   );
 }
