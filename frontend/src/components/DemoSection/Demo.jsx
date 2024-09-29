@@ -202,7 +202,9 @@ export default function Demo() {
                 hover:bg-black hover:text-[#00F654] hover:border-[#00F654] ml-[68vw] mt-[1vw]
                 transition duration-300 ease-in-out 
                 rounded-xl">
+                  <Link to='/footballgame/1'>
               PLAY NOW
+                  </Link>
             </button>
           </div>
         </div>
