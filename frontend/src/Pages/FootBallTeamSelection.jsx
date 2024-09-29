@@ -167,7 +167,7 @@ export default function EnhancedFootballTeamSelection() {
             <button
               onClick={() => removePlayer(player)}
               className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center"
-              aria-label={Remove ${player.name}}
+              aria-label={`Remove ${player.name}`}
               >
               <X className="w-3 h-3" />
             </button>
@@ -195,7 +195,7 @@ export default function EnhancedFootballTeamSelection() {
             <button
               onClick={() => removePlayer(player, true)}
               className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center"
-              aria-label={Remove ${player.name}}
+              aria-label={`Remove ${player.name}`}
               >
               <X className="w-3 h-3" />
             </button>
@@ -228,13 +228,13 @@ export default function EnhancedFootballTeamSelection() {
 
         <div className="flex mb-4">
           <div 
-            className={flex-1 p-2 rounded-l cursor-pointer ${selectionMode === 'main' ? 'bg-green-500' : 'bg-gray-700'}}
+            className={`flex-1 p-2 rounded-l cursor-pointer ${selectionMode === 'main' ? 'bg-green-500' : 'bg-gray-700'}`}
             onClick={() => setSelectionMode('main')}
             >
             Player Selection
           </div>
           <div 
-            className={text-white flex-1 p-2 rounded-r cursor-pointer ${selectionMode === 'substitute' ? 'bg-green-500' : 'bg-gray-700'}}
+            className={`text-white flex-1 p-2 rounded-r cursor-pointer ${selectionMode === 'substitute' ? 'bg-green-500' : 'bg-gray-700'}`}
             onClick={() => setSelectionMode('substitute')}
             >
             Substitute Selection
@@ -256,7 +256,7 @@ export default function EnhancedFootballTeamSelection() {
           {positions.map(position => (
             <button
             key={position.name}
-            className={flex-1 p-2 rounded ${activeTab === position.name ? 'bg-green-500' : 'bg-gray-700'}}
+            className={`flex-1 p-2 rounded ${activeTab === position.name ? 'bg-green-500' : 'bg-gray-700'}`}
             onClick={() => setActiveTab(position.name)}
             >
               {position.name} {selectedPlayers.filter(p => p.position === position.name).length}/{position.limit}
