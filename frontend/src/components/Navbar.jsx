@@ -144,7 +144,7 @@ const Navbar = () => {
             <li className='cursor-pointer hover:text-gGlow transition-all duration-1000'>Gameplay Rules</li>
           </Link>
           <li>
-            <button className='border-white border-2 p-[0.2vw] rounded-xl'>JOIN DISCORD</button>
+            <button className='border-white border-2 p-[0.2vw] rounded-xl'>DISCORD</button>
           </li>
           <li>
             {isConnected ? (

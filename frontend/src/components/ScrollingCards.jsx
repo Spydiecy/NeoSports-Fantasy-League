@@ -84,7 +84,7 @@ export default function ScrollingCards() {
   }, [direction])
 
   return (
-    <div className="w-full bg-black p-4 overflow-hidden">
+    <div className="w-full bg-black p-4 overflow-x-hidden">
       <div className="relative w-[90vw] h-64 mx-auto">
         <AnimatePresence initial={false}>
           <motion.div
@@ -106,7 +106,7 @@ export default function ScrollingCards() {
 function MatchCard({ match }) {
   return (
     <motion.div
-      className="w-full h-full bg-black rounded-lg overflow-hidden shadow-lg"
+      className="w-full h-full bg-black rounded-lg overflow-hidden overflow-x-hidden shadow-lg"
     
       transition={{ duration: 0.3 }}
     >

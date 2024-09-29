@@ -217,7 +217,7 @@ export default function Demo() {
         <p className="text-center mb-12 max-w-4xl mx-auto">
           Fantasy Extreme is poised for continuous growth by attracting millions of passionate players and fans
           worldwide. See the explosive growth of fantasy sports below
-        </p>
+      </p>
         <div data-aos="fade-down" className="text-6xl font-bold text-center mb-12">4 BILLION PEOPLE</div>
         <div className="flex flex-col md:flex-row justify-center items-center gap-12">
           <div className="w-full md:w-1/3">

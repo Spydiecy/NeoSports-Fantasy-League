@@ -9,10 +9,10 @@ export default function Home() {
       <div
         className='relative mt-[-11vh] w-full h-[100vh] bg-black'
         style={{
-          backgroundImage: url(${homebg}),
+          backgroundImage: `url(${homebg})`,
           backgroundSize: 'cover',
           backgroundPosition: 'bottom ',
-          backgroundRepeat: 'no-repeat',
+          backgroundRepeat: 'no-repeat'
         }}
       >
         {/* Overlay for darkening the background */}
