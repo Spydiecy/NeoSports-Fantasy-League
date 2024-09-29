@@ -185,7 +185,7 @@ export default function EnhancedFootballTeamSelection() {
       })}
 
       {/* Substitute players on pitch */}
-      {substitutes.map((player, index) => {
+      {/* {substitutes.map((player, index) => {
         const position = getPlayerPosition(player.position, substitutes.filter(p => p.position === player.position).indexOf(player), true)
         return (
           <div
@@ -210,12 +210,12 @@ export default function EnhancedFootballTeamSelection() {
             </div>
           </div>
         )
-      })}
+      })} */}
       
     </div>
     <div className="absolute left-0 right-0 -bottom-[80vh] bg-gray-800 bg-opacity-80 p-4  mb-[10vh]">
         <div className="flex justify-between items-center mb-4">
-          <div className="text-xl font-bold">Player Selection</div>
+          <div className="text-xl text-gray-500 font-bold">Player Selection</div>
           <div className="flex items-center space-x-4">
             <select 
               value={formation} 
@@ -232,19 +232,16 @@ export default function EnhancedFootballTeamSelection() {
           </div>
         </div>
 
-        <div className="flex mb-4">
-          <div 
-            className={`flex-1 p-2 rounded-l cursor-pointer ${selectionMode === 'main' ? 'bg-green-500' : 'bg-gray-700'}`}
-            onClick={() => setSelectionMode('main')}
-            >
-            Player Selection
-          </div>
-          <div 
+        <div className="flex w-full ">
+ 
+          
+          ****MAY BE IMPLEMENTED IN FUTURE ***
+          {/* <div 
             className={`text-white flex-1 p-2 rounded-r cursor-pointer ${selectionMode === 'substitute' ? 'bg-green-500' : 'bg-gray-700'}`}
             onClick={() => setSelectionMode('substitute')}
             >
             Substitute Selection
-          </div>
+          </div> */}
         </div>
 
         <div className="relative mb-4">
