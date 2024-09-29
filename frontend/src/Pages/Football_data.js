@@ -1,5 +1,6 @@
 const IPL_data=[
     {
+      "id":1,
       "competition1": {
         "name": "Bayern München",
         "image": "https://media.api-sports.io/football/teams/157.png"
@@ -15,6 +16,7 @@ const IPL_data=[
       "country": "Germany"
     },
     {
+      "id":2,
       "competition1": {
         "name": "Real Sociedad",
         "image": "https://media.api-sports.io/football/teams/548.png"
@@ -30,6 +32,7 @@ const IPL_data=[
       "country": "Spain"
     },
     {
+      "id":3,
       "competition1": {
         "name": "Wolves",
         "image": "https://media.api-sports.io/football/teams/728.png"
@@ -45,6 +48,7 @@ const IPL_data=[
       "country": "England"
     },
     {
+      "id":4,
       "competition1": {
         "name": "Rayo Vallecano",
         "image": "https://media.api-sports.io/football/teams/55.png"
@@ -60,6 +64,7 @@ const IPL_data=[
       "country": "Spain"
     },
     {
+      "id":5,
       "competition1": {
         "name": "Everton",
         "image": "https://media.api-sports.io/football/teams/161.png"
@@ -75,6 +80,7 @@ const IPL_data=[
       "country": "England"
     },
     {
+      "id":6,
       "competition1": {
         "name": "Nottingham Forest",
         "image": "https://media.api-sports.io/football/teams/46.png"
@@ -90,6 +96,7 @@ const IPL_data=[
       "country": "England"
     },
     {
+      "id":7,
       "competition1": {
         "name": "Brentford",
         "image": "https://media.api-sports.io/football/teams/65.png"
@@ -105,6 +112,7 @@ const IPL_data=[
       "country": "England"
     },
     {
+      "id":8,
       "competition1": {
         "name": "Chelsea",
         "image": "https://media.api-sports.io/football/teams/727.png"
@@ -120,6 +128,7 @@ const IPL_data=[
       "country": "England"
     },
     {
+      "id":9,
       "competition1": {
         "name": "Arsenal",
         "image": "https://media.api-sports.io/football/teams/837.png"
@@ -135,6 +144,7 @@ const IPL_data=[
       "country": "England"
     },
     {
+      "id":10,
       "competition1": {
         "name": "VfL Wolfsburg",
         "image": "https://media.api-sports.io/football/teams/5695.png"

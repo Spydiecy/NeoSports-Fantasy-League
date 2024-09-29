@@ -30,7 +30,7 @@ export default function FootballLeagues() {
     
     <div className=' w-full bg-black text-gGlow pt-24 px-20 flex flex-col items-center'>
       <div className="top-bar flex justify-between w-[80vw] px-6">
-        <h1 className='text-4xl'>IPL LEAGUES</h1>
+        <h1 className='text-4xl'>FootBall LEAGUES</h1>
 
     
       </div>
@@ -44,7 +44,7 @@ export default function FootballLeagues() {
         />
         <div className='label-div flex justify-between px-7 mt-4 text-2xl text-white'>
           <h1>Action</h1>
-          <h1>Matches</h1>
+          <h1>Matches</h1>  
           <h1>Date</h1>
           <h1>Time</h1>
           <h1>Location</h1>

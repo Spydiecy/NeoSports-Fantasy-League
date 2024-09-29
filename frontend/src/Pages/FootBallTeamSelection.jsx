@@ -132,6 +132,21 @@ export default function EnhancedFootballTeamSelection() {
        
         <div className="flex items-center space-x-8">
           <div>
+          <div className='mycard-3 vs-div flex gap-5 justify-center items-center'>
+          <div className='1st-comp flex gap-1 justify-center items-center'>
+            <Tooltip content={competition1.name}>
+              <h1>{competition1.name}</h1>
+            </Tooltip>
+            <img className='h-6' src={competition1.image} alt={competition1.name} />
+          </div>
+          vs
+          <div className='2nd-comp flex gap-1 justify-center items-center'>
+            <img className='h-6' src={competition2.image} alt={competition2.name} />
+            <Tooltip content={competition2.name}>
+              <h1>{competition2.name}</h1>
+            </Tooltip>
+          </div>
+        </div>
             <div className="text-sm">BUDGET</div>
             <div className="text-3xl font-bold">{budget}</div>
           </div>

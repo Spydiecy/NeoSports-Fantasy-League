@@ -53,7 +53,7 @@ export default function dropDialogue() {
                   
                     
                     setIsOpen(false)
-                    Navigate('/leagues/IPL')
+                    Navigate('/leagues/football')
                   }}
                 >
                   {league}

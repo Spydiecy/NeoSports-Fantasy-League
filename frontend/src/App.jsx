@@ -28,10 +28,10 @@ function App() {
         <Route path="/matches" element={<Matches/>} />
         <Route path="/rewardCalculator" element={<RewardsCalc props={{isShow}}></RewardsCalc>} />
         <Route path="/userProfile" element={<User></User>} />
-        <Route path="/fantasyextremeRules" element={<FantasyExtremeRules></FantasyExtremeRules>} />
-        <Route path="/leagues/IPL" element={<FootballLeagues></FootballLeagues>} />
+        <Route path="/fantasyextremeRules/" element={<FantasyExtremeRules></FantasyExtremeRules>} />
+        <Route path="/leagues/football" element={<FootballLeagues></FootballLeagues>} />
 
-        <Route path="/footballgame" element={<FootballTeamSelection/>} />
+        <Route path="/footballgame/:id" element={<FootballTeamSelection/>} />
         
 
         <Route path="*" element={<Navigate to="/home" />} />
