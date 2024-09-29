@@ -5,6 +5,7 @@ import result1 from '../../assets/ResultsImages/1.png'
 import result2 from '../../assets/ResultsImages/2.png'
 import result3 from '../../assets/ResultsImages/3.png'
 import { ChevronRightIcon } from 'lucide-react';
+import Videoplayer from '../VideoPlayer/Videoplayer';
 
 const ProgressBar = ({ value, maxValue, year }) => {
   const percentage = (value / maxValue) * 100;
@@ -167,6 +168,7 @@ export default function Demo() {
         </p>
       </div>
 
+    <Videoplayer></Videoplayer>
       <div className='cards'>
         <h1 className='text-4xl flex justify-center pt-20'>
           HOW IT <span className='text-[#00F654]'>WORKS</span>
@@ -189,6 +191,7 @@ export default function Demo() {
             alt="Football History"
             className="absolute bottom-0 left-0 h-[44vh] w-[22vw] rounded"
           />
+             
           <div className="relative z-10 text-white flex flex-col justify-between flex-1 p-6">
             <div className="flex flex-col items-end mb-4">
               <h2 className="text-2xl font-bold text-right"></h2>

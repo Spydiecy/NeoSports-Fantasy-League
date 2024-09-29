@@ -36,7 +36,7 @@ function App() {
 
         <Route path="*" element={<Navigate to="/home" />} />
       </Routes>
-      {/* <Footer></Footer> */}
+      <Footer></Footer>
     </Router>
   );
 }
