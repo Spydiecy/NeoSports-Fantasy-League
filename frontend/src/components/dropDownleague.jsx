@@ -7,7 +7,7 @@ import { ChevronDown } from "lucide-react"
 
 const leagues = [
   "League",
-  "IPL",
+  "Football",
   "La Liga",
   "Premier",
   "Bundesliga",
@@ -53,7 +53,7 @@ export default function dropDialogue() {
                   
                     
                     setIsOpen(false)
-                    Navigate('/leagues/IPL')
+                    Navigate('/leagues/football')
                   }}
                 >
                   {league}
