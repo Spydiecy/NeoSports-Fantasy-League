@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import card1 from '../../assets/demoCards/card1.png';
 import card2 from '../../assets/demoCards/card2.png';
 import card3 from '../../assets/demoCards/card3.png';
 import card4 from '../../assets/demoCards/card4.png';
-
+import AOS from "aos";
+import "aos/dist/aos.css";
 const cardData = [
   {
     img: card1,
@@ -28,8 +29,12 @@ const cardData = [
 ];
 
 export default function Democard() {
+  useEffect(() => {
+    AOS.init({duration:1700});
+    // AOS.refresh();
+  }, [])
   return (
-    <div className="flex items-center justify-center mt-[2vw]">
+    <div data-aos="fade-left" className="flex items-center justify-center mt-[2vw]">
       <div className="grid grid-cols-4 gap-6">
         {cardData.map((card, index) => (
           <div
