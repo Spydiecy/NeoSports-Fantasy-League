@@ -1,0 +1,27 @@
+.adhd-top-video {
+    width: 100%;
+    height: 100%;
+    max-width: 1034px;
+    max-height: 543px;
+    margin: 0 auto;
+    margin-bottom: 100px
+}
+.adhd-top-video .adhd-top-video2 {
+    position: relative;
+    padding-top: 25px;
+    padding-bottom: 67.5%;
+    height: 0;
+    margin-bottom: 200px
+}
+.adhd-top-video video {
+    box-sizing: border-box;
+    background: url(https://www.adhdcentre.co.uk/wp-content/uploads/2018/02/macbook.png) center center no-repeat;
+    background-size: contain;
+    padding: 11.9% 15.5% 14.8%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+}

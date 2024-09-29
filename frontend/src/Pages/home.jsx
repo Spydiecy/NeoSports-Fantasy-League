@@ -1,6 +1,7 @@
 import React from 'react';
 import homebg from '../assets/homebg.jpg';
 import Demo from '../components/DemoSection/Demo';
+import Videoplayer from '../components/VideoPlayer/Videoplayer';
 
 export default function Home() {
   return (
@@ -34,7 +35,10 @@ export default function Home() {
       {/* Demo Section */}
       <div className="bg-black text-white">
         <Demo />
+        
       </div>
+      
+
     </div>
   );
 }

@@ -10,7 +10,7 @@ export default function FantasyExtremeRules() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-black text-white p-4 overflow-x-hidden pt-34">
+    <div className="min-h-screen bg-black text-white p-4 overflow-x-hidden pt-36">
       <div className={`max-w-full mx-auto transition-all duration-1000 ${animate ? 'opacity-100' : 'opacity-0'}`}>
         <h1 className="text-3xl font-bold text-green-500 mb-4 animate-pulse">FANTASY EXTREME GAMEPLAY RULES</h1>
         <p className="mb-4">We are providing a comprehensive guide on how you can become a manager and enter the contests on Fantasy Extreme. Please refer to the below guidelines.</p>
