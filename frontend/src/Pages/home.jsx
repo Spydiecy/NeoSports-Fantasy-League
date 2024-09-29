@@ -1,6 +1,7 @@
 import React from 'react';
 import homebg from '../assets/homebg.jpg';
 import Demo from '../components/DemoSection/Demo';
+
 import Videoplayer from '../components/VideoPlayer/Videoplayer';
 import  {Link}  from 'react-router-dom';
 
@@ -8,7 +9,7 @@ export default function Home() {
   return (
     <div className='min-h-[100vh] w-full bg-black -z-50'>
       <div
-        className='relative mt-[-11vh] w-full h-[100vh] bg-black'
+        className='relative mt-[-26vh] w-full h-[100vh] bg-black'
         style={{
           backgroundImage: `url(${homebg})`,
           backgroundSize: 'cover',
