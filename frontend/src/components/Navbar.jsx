@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { ethers } from 'ethers';
+import logo from '../assets/logo.jpg'
 import { getUserData, registerUser } from '../Pages/userManagerABI';
 import DropDownLeague from './dropDownleague';  // Your dropdown component
 

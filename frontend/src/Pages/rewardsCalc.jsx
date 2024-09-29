@@ -116,7 +116,7 @@ const RewardsCalc = ({props}) => {
                 </div>
                </div>
                <hr className='border-2 border-gray-600' />
-               <img src={pool_image} alt="" srcset="" />
+            
                <h1 className='text-2xl'>Rewards <span className='text-gGlow'>by Rank</span></h1>
                <div className='table-tag text-black'>
      
