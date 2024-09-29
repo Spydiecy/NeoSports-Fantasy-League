@@ -11,11 +11,12 @@ export default function Home() {
         style={{
           backgroundImage: `url(${homebg})`,
           backgroundSize: 'cover',
-          backgroundPosition: 'bottom',
+          backgroundPosition: 'top',
+          backgroundRepeat:'no-repeat'
        
         }}
       >
-        {/* Overlay for blurring effect */}
+        {/* home  */}
         <div className="absolute inset-0 bg-black opacity-50 backdrop-blur-sm" />
         
         <div className="absolute inset-0 flex flex-col items-center justify-center text-gray-300 text-center">

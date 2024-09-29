@@ -1,0 +1,36 @@
+import { ethers } from 'ethers';
+
+export const FANTASY_FOOTBALL_ADDRESS = '0xa84ccf2422afccadfc0d88430b4f6fe590063f89';
+
+export const FANTASY_FOOTBALL_ABI = [
+  // Add the ABI here
+  // Example ABI entries:
+  {
+    "inputs": [{"internalType": "uint256", "name": "_matchId", "type": "uint256"}, {"internalType": "uint256[]", "name": "_playerIds", "type": "uint256[]"}],
+    "name": "registerTeam",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [{"internalType": "address", "name": "_owner", "type": "address"}],
+    "name": "getTeam",
+    "outputs": [{"internalType": "uint256[]", "name": "", "type": "uint256[]"}, {"internalType": "uint256", "name": "", "type": "uint256"}],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  // Add more ABI entries as needed
+];
+
+export async function getTeam(provider, userAddress) {
+  const contract = new ethers.Contract(FANTASY_FOOTBALL_ADDRESS, FANTASY_FOOTBALL_ABI, provider);
+  try {
+    const [playerIds, totalPoints] = await contract.getTeam(userAddress);
+    return { playerIds, totalPoints };
+  } catch (error) {
+    console.error("Error fetching team data:", error);
+    return null;
+  }
+}
+
+// Add more functions as needed
