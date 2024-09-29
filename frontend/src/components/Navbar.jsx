@@ -154,7 +154,9 @@ const Navbar = () => {
           <Link to='/rewardCalculator'>
             <li className='cursor-pointer mr-9 hover:text-gGlow transition-all duration-1000'>Rewards</li>
           </Link>
+          <Link to='/leagues/IPL'>
           <li className='cursor-pointer hover:text-gGlow transition-all duration-1000'>Leagues</li>
+          </Link>
           <Link to="/fantasyextremeRules">
             <li className='cursor-pointer hover:text-gGlow transition-all duration-1000'>Gameplay Rules</li>
           </Link>
