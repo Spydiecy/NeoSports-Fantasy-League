@@ -8,7 +8,7 @@ import RewardsCalc from './Pages/rewardsCalc';
 import { useState } from 'react';
 import User from './Pages/user';
 import IPL from './Pages/IPL';
-import Footer from '../src/Components/Footer'
+import Footer from '../src/components/Footer'
 
 import FootballTeamSelection from './Pages/FootBallTeamSelection';
 
