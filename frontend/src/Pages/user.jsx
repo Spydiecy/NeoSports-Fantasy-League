@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { ethers } from 'ethers';
 import { getUserData } from './userManagerABI';
+import { getTeam } from './fantasyFootballABI';
 
 const User = () => {
   const [provider, setProvider] = useState(null);
   const [userId, setUserId] = useState("");
   const [userData, setUserData] = useState(null);
+  const [teamData, setTeamData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -31,15 +33,17 @@ const User = () => {
   }, []);
 
   useEffect(() => {
-    const fetchUserData = async () => {
+    const fetchData = async () => {
       if (provider && userId) {
         setIsLoading(true);
         try {
-          const data = await getUserData(provider, userId);
-          if (data) {
-            setUserData(data);
-          } else {
-            setError("User not registered");
+          const userData = await getUserData(provider, userId);
+          const teamData = await getTeam(provider, userId);
+          if (userData) {
+            setUserData(userData);
+          }
+          if (teamData) {
+            setTeamData(teamData);
           }
         } catch (error) {
           setError("Error fetching user data");
@@ -48,7 +52,7 @@ const User = () => {
       }
     };
 
-    fetchUserData();
+    fetchData();
   }, [provider, userId]);
 
   if (isLoading) return <div className="text-white text-center mt-20">Loading...</div>;
@@ -58,7 +62,7 @@ const User = () => {
     <div className="min-h-screen bg-gray-black text-white p-8 h-[240vh] bg-black pt-44">
       <div className="mx-5 mb-20 bg-gray-800 border border-gray-700 rounded-lg p-6">
         <h1 className="text-2xl font-bold text-center mb-6">User Profile</h1>
-        {userData ? (
+        {userData && (
           <div className="space-y-6">
             <div className="flex justify-between items-center">
               <div>
@@ -78,14 +82,10 @@ const User = () => {
               <StatCard title="Registration Status" value={userData.isRegistered ? "Registered" : "Not Registered"} />
             </div>
           </div>
-        ) : (
-          <div className="text-center">
-            <p className="mb-4">User not registered</p>
-          </div>
         )}
       </div>
 
-      <div className="mb-28 bg-gradient-to-b bg-black w-full to-black p-6">
+      <div className="mb-10 bg-gradient-to-b bg-black w-full to-black p-6">
         <div className="bg-gray-800 rounded-3xl shadow-lg overflow-hidden">
           <div className="p-6">
             <div className="flex justify-between items-center mb-8">
@@ -112,21 +112,37 @@ const User = () => {
             <div className="bg-gray-700 rounded-2xl overflow-hidden">
               <div className="grid grid-cols-5 gap-4 p-4 text-gray-300 font-semibold border-b border-gray-600">
                 <div>MATCHES</div>
-                <div>CREATED TEAMS</div>
-                <div>JOINED TEAMS</div>
+                <div>TOTAL POINTS</div>
+                <div>PLAYERS</div>
                 <div>DATE</div>
                 <div>ACTION</div>
               </div>
-              <div className="p-8 text-center text-gray-400">
-                No Teams Found
-              </div>
+              {teamData ? (
+                <div className="p-4 text-gray-300">
+                  <div className="grid grid-cols-5 gap-4">
+                    <div>Match ID: TBD</div>
+                    <div>{teamData.totalPoints.toString()}</div>
+                    <div>{teamData.playerIds.length} players</div>
+                    <div>TBD</div>
+                    <div>
+                      <button className="bg-white text-black font-bold px-6 py-2 rounded-lg hover:bg-gray-200 transition duration-300">
+                        View
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div className="p-8 text-center text-gray-400">
+                  No Teams Found
+                </div>
+              )}
             </div>
           </div>
         </div>
       </div>
 
-      <div className="bg-gradient-to-b from-gray-900 to-black">
-        <div className="mx-auto bg-gray-800 rounded-3xl shadow-lg overflow-hidden">
+      <div className="bg-gradient-to-b bg-black w-full to-black p-6">
+        <div className="bg-gray-800 rounded-3xl shadow-lg overflow-hidden">
           <div className="p-6">
             <div className="flex justify-between items-center mb-8">
               <h1 className="text-2xl font-bold">
@@ -145,7 +161,7 @@ const User = () => {
                   </div>
                 </div>
                 <button className="bg-white text-black font-bold px-6 py-2 rounded-lg hover:bg-gray-200 transition duration-300">
-                  CREATE
+                  FILTER
                 </button>
               </div>
             </div>
@@ -153,7 +169,7 @@ const User = () => {
               <div className="grid grid-cols-5 gap-4 p-4 text-gray-300 font-semibold border-b border-gray-600">
                 <div>TITLE</div>
                 <div>AMOUNT</div>
-                <div>TIME</div>
+                <div>TYPE</div>
                 <div>DATE</div>
                 <div>TIME</div>
               </div>
