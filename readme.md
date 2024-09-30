@@ -4,7 +4,7 @@ NeoSports Fantasy League is a cutting-edge fantasy sports platform built on the 
 
 ![image](https://github.com/user-attachments/assets/cf230584-3313-49c7-a8a1-99950928d8bc)
 
-[Live demo](https://neo-sports-fantasy-league-alpha.vercel.app/home)
+[Live demo]([https://neo-sports-fantasy-league-alpha.vercel.app/home](https://neo-sports-fantasy-league-alpha.vercel.app/home))
 
 ## Table of Contents
 
