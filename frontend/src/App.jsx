@@ -30,12 +30,9 @@ function App() {
         <Route path="/fantasyextremeRules/" element={<FantasyExtremeRules></FantasyExtremeRules>} />
         <Route path="/leagues/football" element={<FootballLeagues></FootballLeagues>} />
         <Route path="/footballgame/:id" element={<FootballTeamSelection/>} />
-<<<<<<< HEAD
-=======
         <Route path="/contactUs" element={<ContactUs></ContactUs>} />
         
 
->>>>>>> feddb94670ad66f4899d804eecc7f31d579612d3
         <Route path="*" element={<Navigate to="/home" />} />
       </Routes>
       <Footer></Footer>
