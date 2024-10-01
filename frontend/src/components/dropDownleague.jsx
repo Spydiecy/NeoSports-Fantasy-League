@@ -7,7 +7,7 @@ import { ChevronDown } from "lucide-react"
 
 const leagues = [
   "League",
-  "IPL",
+  "Football",
   "La Liga",
   "Premier",
   "Bundesliga",

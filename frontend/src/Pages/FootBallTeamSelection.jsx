@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { X, Youtube, Facebook, Linkedin, Music, Search, ChevronDown } from 'lucide-react'
 import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import pitch from '../assets/pitch.png'
 import playerImg from '../assets/player.png'
 import Footballdata from '../Pages/Football_data'
