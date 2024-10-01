@@ -14,6 +14,7 @@ export default function EnhancedFootballTeamSelection() {
   const [activeTab, setActiveTab] = useState('Goalkeeper')
   const [searchTerm, setSearchTerm] = useState('')
   const [selectionMode, setSelectionMode] = useState('main') 
+  const {id} =useParams();
   
 
   const positions = [

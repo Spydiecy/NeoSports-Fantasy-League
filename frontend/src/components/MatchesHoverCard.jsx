@@ -1,7 +1,8 @@
 import React from 'react';
 import { Tooltip } from "@nextui-org/react";
-import { Navigate } from 'react-router-dom';
+import { Navigate, useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 const MatchesHoverCard = ({ match}) => {
   const {
@@ -14,6 +15,7 @@ const MatchesHoverCard = ({ match}) => {
     stadium,
   } = match;
   const navigate = useNavigate();
+
   return (
     <div>
       <div className="mycard border-b-2 text-white border-white flex justify-evenly w-full h-20 items-center hover:border-b-gGlow transition-all duration-1000 cursor-pointer hover:bg-gray-900">

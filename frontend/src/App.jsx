@@ -19,10 +19,8 @@ function App() {
     <Router>
       <Navbar></Navbar>
       <Routes>
-    
         {/* Default route that redirects to /home */}
         <Route path="/" element={<Navigate to="/home" />} />
-        
         {/* Home route */}
         <Route path="/home" element={<Home />} />
         <Route path="/matches" element={<Matches/>} />
@@ -30,10 +28,7 @@ function App() {
         <Route path="/userProfile" element={<User></User>} />
         <Route path="/fantasyextremeRules/" element={<FantasyExtremeRules></FantasyExtremeRules>} />
         <Route path="/leagues/football" element={<FootballLeagues></FootballLeagues>} />
-
         <Route path="/footballgame/:id" element={<FootballTeamSelection/>} />
-        
-
         <Route path="*" element={<Navigate to="/home" />} />
       </Routes>
       <Footer></Footer>
