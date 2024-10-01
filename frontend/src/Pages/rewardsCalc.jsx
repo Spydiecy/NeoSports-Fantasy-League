@@ -91,13 +91,13 @@ const RewardsCalc = ({props}) => {
                   </ModalHeader>
               <ModalBody className='text-white'>
                <h2 className='text-gGlow'>Total Partitcipants</h2>
-               <Input type="number"  label="Number" />
+               <Input type="number"  label="Number" className='dark' />
                <div className="contest-entry-fee-div flex justify-between ">
                 <div className="type-gold-div text-sm w-44">
                   <h2>Select Context</h2>
                 <Select 
         label="Select Contest" 
-        className="max-w-xs" 
+        className="max-w-xs dark" 
         defaultOpen="gold"
       >
         
@@ -112,7 +112,7 @@ const RewardsCalc = ({props}) => {
                 </div>
                 <div className="fee-div pr-16">
                   Entry Fee
-                  <Input placeholder='1' type='number'></Input>
+                  <Input placeholder='1' type='number' className='dark'></Input>
                 </div>
                </div>
                <hr className='border-2 border-gray-600' />
@@ -120,7 +120,7 @@ const RewardsCalc = ({props}) => {
                <h1 className='text-2xl'>Rewards <span className='text-gGlow'>by Rank</span></h1>
                <div className='table-tag text-black'>
      
-               <Table aria-label="Example table with dynamic content" className='text-black'>
+               <Table aria-label="Example table with dynamic content" className='text-white dark '>
       <TableHeader columns={columns}>
         {(column) => <TableColumn key={column.key}>{column.label}</TableColumn>}
       </TableHeader>

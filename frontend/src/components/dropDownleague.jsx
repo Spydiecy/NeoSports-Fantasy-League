@@ -23,11 +23,13 @@ export default function dropDialogue() {
       <div className="absolute w-44">
         <motion.button
           className=" px-4 py-2 text-left  text-white rounded-md focus:outline-none"
+          onMouseEnter={() => setIsOpen(!isOpen)}
+          onMouseMove={() => setIsOpen(!isOpen)}
           onClick={() => setIsOpen(!isOpen)}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          <span className="flex justify-between items-center rounded-2xl">
+          <span className="flex justify-between items-center rounded-2xl ">
             {selectedLeague}
           
           </span>
@@ -35,13 +37,13 @@ export default function dropDialogue() {
         <AnimatePresence>
           {isOpen && (
             <motion.ul
-              className="absolute w-full mt-2 py-2 bg-gray-800 rounded-md shadow-lg z-10"
+              className="absolute w-full mt-2 py-2 bg-gray-800 rounded-md shadow-lg z-10 "
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.3 }}
               style={{
-                boxShadow: `0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00, 0 0 40px #00ff00`,
+                boxShadow: `0 0 1px #00ff00, 0 0 2px #00ff00, 0 0 3px #00ff00, 0 0 14px #00ff00`,
               }}
             >
               {leagues.map((league) => (

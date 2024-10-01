@@ -35,7 +35,7 @@ export default function Matches() {
   const filteredMatches = updatedMatches.filter(match => match.status === activeButton);
 
   return (
-    <div className='min-h-[200vh] w-full bg-black text-gGlow pt-40 px-20 flex flex-col items-center'>
+    <div className='min-h-[200vh] w-full bg-black text-gGlow pt-16 px-20 flex flex-col items-center'>
       <div className='top-bar flex justify-between w-[80vw] px-6'>
         <h1 className='text-4xl'>Matches</h1>
 
