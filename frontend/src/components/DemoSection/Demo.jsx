@@ -9,6 +9,10 @@ import Videoplayer from '../VideoPlayer/Videoplayer';
 import ScrollingCards from '../ScrollingCards';
 import {Link} from "react-router-dom";
 import AOS from "aos";
+import logo1 from '../../assets/participants/1.png'
+import logo2 from '../../assets/participants/2.png'
+import logo3 from '../../assets/participants/3.png'
+import logo4 from '../../assets/participants/4.png'
 import "aos/dist/aos.css";
 const ProgressBar = ({ value, maxValue, year }) => {
   useEffect(() => {
@@ -230,6 +234,20 @@ export default function Demo() {
             <ProgressBar value={30.95} maxValue={87.07} year="EST in 2023" />
             <ProgressBar value={87.07} maxValue={87.07} year="EXP in 2031" />
           </div>
+        </div>
+      </div>
+      <div className=' ml-[10vw] mt-[8vh] border w-[80vw] rounded-3xl p-6 flex border-gray-300'>
+      <div className='millions'>
+        <h4 className='text-[#00F654] text-3xl'> 90 MILLION</h4>
+        <h5 className='text-[4rem]'> 90 MILLION</h5>
+        <h6 className='text-[#00F654] text-[1.2rem] ml-[17vw]' > PARTICIPANTS</h6>
+        </div>
+        <div className='logos flex ml-[4vw]'>
+        <img src={logo1}></img>
+        <img src={logo2}></img>
+        <img src={logo3}></img>
+        <img src={logo4}></img>
+
         </div>
       </div>
     </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import { Tooltip } from "@nextui-org/react";
 import { Navigate, useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
+
 
 const MatchesHoverCard = ({ match}) => {
   const {
