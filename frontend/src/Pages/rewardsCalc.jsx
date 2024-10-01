@@ -115,6 +115,10 @@ const RewardsCalc = ({props}) => {
                   <Input placeholder='1' type='number' className='dark'></Input>
                 </div>
                </div>
+           
+
+               <button className='bg-gGlow p-2 rounded-2xl float-right hover:bg-white hover:text-gGlow duration-700'>Submit</button>
+               
                <hr className='border-2 border-gray-600' />
             
                <h1 className='text-2xl'>Rewards <span className='text-gGlow'>by Rank</span></h1>
