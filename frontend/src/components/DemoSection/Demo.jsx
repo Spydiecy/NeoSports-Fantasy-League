@@ -65,14 +65,14 @@ const CircularProgress = ({ value, maxValue }) => {
           cy="60"
           transform="rotate(-90 60 60)"
         />
-        <text x="50%" y="50%" dominantBaseline="middle" textAnchor="middle" className="text-2xl font-bold fill-white">
+        <text x="50%" y="50%" dominantBaseline="top" textAnchor="middle" className="text-md font-bold fill-white">
           ${value}
         </text>
-        <text x="50%" y="65%" dominantBaseline="middle" textAnchor="middle" className="text-lg fill-white">
+        <text x="50%" y="65%" dominantBaseline="top" textAnchor="middle" className="text-md fill-white">
           BILLIONS
         </text>
       </svg>
-      <div className="absolute bottom-0 left-0 right-0 text-center text-white">Curt in 2024</div>
+      <div className="absolute -bottom-4 left-0 right-0 text-center text-white">Curt in 2024</div>
     </div>
   );
 };

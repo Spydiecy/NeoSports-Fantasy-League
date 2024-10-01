@@ -4,6 +4,7 @@ import { ethers } from 'ethers';
 import logo from '../assets/logo.jpg'
 import { getUserData, registerUser } from '../Pages/userManagerABI';
 import DropDownLeague from './dropDownleague';  // Your dropdown component
+import { Tooltip } from '@nextui-org/react';
 
 const Navbar = () => {
   const [account, setAccount] = useState('');
@@ -127,7 +128,11 @@ const Navbar = () => {
     <div className='flex sticky gap-[30vw] top-3 gap-x-[40vw] z-50'>
       <div className="left-part">
         <Link to="/home">
+        <Tooltip className='dark text-white' placement='top-start' content="H
+        ome">
+
           <img className='h-20 pl-4' src="https://fantasy-extreme-assets.s3.us-east-005.backblazeb2.com/Compressed/logo/logo.png" alt="" />
+        </Tooltip>
         </Link>
       </div>
       <div className="right-part flex flex-col ">
