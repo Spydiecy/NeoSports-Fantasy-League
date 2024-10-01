@@ -11,6 +11,7 @@ import FootballLeagues from './Pages/FootballLeagues';
 import Footer from '../src/components/Footer'
 
 import FootballTeamSelection from './Pages/FootBallTeamSelection';
+import ContactUs from './Pages/ContactUs';
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
         <Route path="/leagues/football" element={<FootballLeagues></FootballLeagues>} />
 
         <Route path="/footballgame/:id" element={<FootballTeamSelection/>} />
+        <Route path="/contactUs" element={<ContactUs></ContactUs>} />
         
 
         <Route path="*" element={<Navigate to="/home" />} />

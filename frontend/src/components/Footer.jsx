@@ -27,7 +27,7 @@ export default function Footer() {
                 { name: 'PLAYERS', path: '/players' },
                 { name: 'LEAGUES', path: '/leagues/IPL' },
                 { name: 'GAMEPLAY RULES', path: '/fantasyextremeRules' },
-                { name: 'CONTACT US', path: '/contact' },
+                { name: 'CONTACT US', path: '/contactUs' },
               ].map((item) => (
                 <li key={item.name}>
                   <Link to={item.path} className="hover:text-green-500 transition-colors duration-300">
