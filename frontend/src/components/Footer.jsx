@@ -33,6 +33,7 @@ export default function Footer() {
                   <Link to={item.path} className="hover:text-green-500 transition-colors duration-300">
                     {item.name}
                   </Link>
+                  {/* ch */}
                 </li>
               ))}
             </ul>
