@@ -5,7 +5,7 @@ import logo from '../assets/logo.jpg'
 import { getUserData, registerUser } from '../Pages/userManagerABI';
 import DropDownLeague from './dropDownleague';  // Your dropdown component
 import { Tooltip } from '@nextui-org/react';
-
+import icon from "../../src/assets/icon-discord.png";
 const Navbar = () => {
   const [account, setAccount] = useState('');
   const [isConnected, setIsConnected] = useState(false);
@@ -150,7 +150,8 @@ const Navbar = () => {
             <li className='cursor-pointer hover:text-gGlow transition-all duration-1000'>Gameplay Rules</li>
           </Link>
           <li>
-            <button className='border-white border-2 p-[0.2vw] rounded-xl'>DISCORD</button>
+            <button className='border-white border-2 p-[0.2vw] rounded-xl flex items-center justify-center gap-1 '>
+              <img src={icon} className='h-4'  />DISCORD</button>
           </li>
           <li>
             {isConnected ? (
