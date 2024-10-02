@@ -3,34 +3,51 @@ import { ethers } from 'ethers';
 export const FANTASY_FOOTBALL_ADDRESS = '0xa84ccf2422afccadfc0d88430b4f6fe590063f89';
 
 export const FANTASY_FOOTBALL_ABI = [
-  // Add the ABI here
-  // Example ABI entries:
-  {
-    "inputs": [{"internalType": "uint256", "name": "_matchId", "type": "uint256"}, {"internalType": "uint256[]", "name": "_playerIds", "type": "uint256[]"}],
-    "name": "registerTeam",
-    "outputs": [],
-    "stateMutability": "payable",
-    "type": "function"
-  },
-  {
-    "inputs": [{"internalType": "address", "name": "_owner", "type": "address"}],
-    "name": "getTeam",
-    "outputs": [{"internalType": "uint256[]", "name": "", "type": "uint256[]"}, {"internalType": "uint256", "name": "", "type": "uint256"}],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  // Add more ABI entries as needed
+  // ... (previous ABI remains the same)
 ];
 
-export async function getTeam(provider, userAddress) {
+export async function getMatches(provider) {
   const contract = new ethers.Contract(FANTASY_FOOTBALL_ADDRESS, FANTASY_FOOTBALL_ABI, provider);
   try {
-    const [playerIds, totalPoints] = await contract.getTeam(userAddress);
-    return { playerIds, totalPoints };
+    const matchCount = await contract.matchCounter();
+    const matches = [];
+    for (let i = 1; i <= matchCount; i++) {
+      const match = await contract.getMatchDetails(i);
+      matches.push({
+        id: i,
+        startTime: Number(match[1]),
+        endTime: Number(match[2]),
+        isFinished: match[3],
+        participants: match[4]
+      });
+    }
+    return matches;
   } catch (error) {
-    console.error("Error fetching team data:", error);
-    return null;
+    console.error("Error fetching matches:", error);
+    return [];
   }
 }
 
-// Add more functions as needed
+export async function createTeam(signer, matchId, playerIds) {
+  const contract = new ethers.Contract(FANTASY_FOOTBALL_ADDRESS, FANTASY_FOOTBALL_ABI, signer);
+  try {
+    const entryFee = await contract.ENTRY_FEE();
+    const tx = await contract.registerTeam(matchId, playerIds, { value: entryFee });
+    await tx.wait();
+    return true;
+  } catch (error) {
+    console.error("Error creating team:", error);
+    return false;
+  }
+}
+
+export async function getTeam(provider, userAddress, matchId) {
+  const contract = new ethers.Contract(FANTASY_FOOTBALL_ADDRESS, FANTASY_FOOTBALL_ABI, provider);
+  try {
+    const team = await contract.getTeam(userAddress);
+    return team;
+  } catch (error) {
+    console.error("Error fetching team:", error);
+    return null;
+  }
+}
